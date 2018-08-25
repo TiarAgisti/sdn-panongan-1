@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-	<div class="panel-heading">Nilai Murid</div>
+	<div class="panel-heading">Input Nilai Murid</div>
 	<div class="panel-body">
         <input type="text" class="form-control" name="kd_murid" readonly hidden>
         <label>NISN:</label>
