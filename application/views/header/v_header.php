@@ -2,7 +2,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>SDN II Panongan</title>
+  <title>SDN Panongan 1</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendors/iconfonts/puse-icons-feather/feather.css">

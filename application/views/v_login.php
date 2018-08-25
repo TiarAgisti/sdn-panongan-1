@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>SDN II Panongan</title>
+  <title>SDN Panongan 1</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendors/iconfonts/puse-icons-feather/feather.css">
@@ -29,7 +29,7 @@
             <div class="auto-form-wrapper">
               <form method="post" action="<?php base_url();?>login/login_handler">
                 <div class="center">
-                  <h1 style="text-align: center;">SDN II Panongan</h1>
+                  <h1 style="text-align: center;">SDN Panongan 1</h1>
                 </div>
                 <div class="form-group">
                   <label class="label">Kode User</label>
