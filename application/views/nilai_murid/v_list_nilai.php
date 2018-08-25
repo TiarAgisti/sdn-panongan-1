@@ -19,8 +19,12 @@
 						<td>Tiar</td>
 						<td>1A</td>
 						<td>
-							<a href="#">
+							<a href="<?php echo base_url();?>nilai_murid/add">
 								Masukan Nilai
+							</a>
+							||
+							<a href="#">
+								Lihat Nilai
 							</a>
 						</td>
 					</tr>
