@@ -7,6 +7,12 @@
             <option value="Guru">Guru</option>
             <option value="Murid">Murid</option>
         </select>
+        <label>Kode User:</label>
+        <select name="kd_usr" class="form-control">
+            <option value="">--PILIH--</option>
+            <option value="G00001">G00001</option>
+            <option value="G00002">G00002</option>
+        </select>
         <label>Nama User:</label>
         <input type="text" class="form-control" name="nm_usr" readonly>
         <label>Password User:</label>
