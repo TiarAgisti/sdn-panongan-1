@@ -36,7 +36,7 @@ class nilai_murid extends CI_Controller {
         $data['navbar'] = "navbar/v_navbar";
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
-        $data['body'] = "nilai_murid/v_add_nilai_murid";
+        $data['body'] = "nilai_murid/v_add_nilai";
 
         $this->load->view('v_home', $data);
     }
