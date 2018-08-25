@@ -21,7 +21,7 @@
 								Masukan Nilai
 							</a>
 							||
-							<a href="#">
+							<a href="<?php echo base_url();?>nilai_murid/list_nilai_murid">
 								Lihat Nilai
 							</a>
 						</td>
