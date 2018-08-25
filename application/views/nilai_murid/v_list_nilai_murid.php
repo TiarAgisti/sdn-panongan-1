@@ -34,5 +34,9 @@
                 </tr>
             </tbody>
         </table>
+        <br/>
+        <a href="<?php echo base_url();?>nilai_murid"  class="btn btn-danger">
+            Kembali
+        </a>
 	</div>
 </div>
