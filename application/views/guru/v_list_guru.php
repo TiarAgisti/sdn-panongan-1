@@ -11,7 +11,6 @@
 			<table id="dtguru" class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th>No</th>
 						<th>Kode Guru</th>
 						<th>NIP</th>
 						<th>Nama</th>
@@ -23,9 +22,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php $no = 0; foreach($listguru as $row) : $no++;?>
+					<?php ; foreach($listguru as $row) : ;?>
 					<tr>
-						<td><?php echo $no;?></td>
 						<td><?php echo $row->kode_guru;?></td>
 						<td><?php echo $row->nip;?></td>
 						<td><?php echo $row->nama_guru;?></td>
