@@ -2,7 +2,7 @@
 	<div class="panel-heading">Data User</div>
 	<div class="panel-body">
 		<div class="box-header">
-			<a href="#">
+			<a href="<?php echo base_url();?>user/add">
 				<button type="button" class="btn btn-info">Tambah Data</button>
 			</a>
 		</div>
@@ -23,7 +23,7 @@
 						<td>Tiar Agisti</td>
 						<td>Guru</td>
 						<td>
-							<a href="#">
+							<a href="<?php echo base_url();?>user/edit">
 								Ubah
 							</a> |
 							<a href="#">
