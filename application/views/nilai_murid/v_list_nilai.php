@@ -5,7 +5,6 @@
 			<table id="dtnilai" class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th>No</th>
 						<th>Nisn</th>
 						<th>Nama Murid</th>
 						<th>Kelas</th>
@@ -14,7 +13,6 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>1</td>
 						<td>1112</td>
 						<td>Tiar</td>
 						<td>1A</td>
