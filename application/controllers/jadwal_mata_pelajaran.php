@@ -26,6 +26,9 @@ class jadwal_mata_pelajaran extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "jadwal_mata_pelajaran/v_list_jadwal_mata_pelajaran";
+
+        $getData = $this->m_jadwal_mata_pelajaran->retrievejadwal();
+        $data['listjadwal'] = $getData;
         $this->load->view('v_home', $data);
     }
 
