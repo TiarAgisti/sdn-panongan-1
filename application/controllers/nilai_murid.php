@@ -6,7 +6,7 @@ class nilai_murid extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        // $this->load->model('m_guru');
+        $this->load->model('m_murid');
 
         if($this->session->userdata('status') != "login")
         {
@@ -27,6 +27,8 @@ class nilai_murid extends CI_Controller {
         $data['footer'] = "footer/v_footer";
         $data['body'] = "nilai_murid/v_list_nilai";
 
+        $listmurid = $this->m_murid->listmurid();
+        $data['listmurid'] = $listmurid;
         $this->load->view('v_home', $data);
     }
 
