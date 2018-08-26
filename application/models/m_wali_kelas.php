@@ -5,7 +5,7 @@ class m_wali_kelas extends CI_Model{
         parent::__construct();
     }
 
-    function retrievewalimurid(){
+    function retrievewalikelas(){
         $query = $this->db->query('SELECT wl.kode_wali,wl.tahun_ajaran,g.nama_guru 
         ,concat(kls.tingkat_kelas,kls.keterangan_tingkat) as ket_kelas 
         FROM wali_kelas as wl 
