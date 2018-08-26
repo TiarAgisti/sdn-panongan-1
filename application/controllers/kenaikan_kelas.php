@@ -29,5 +29,16 @@ class kenaikan_kelas extends CI_Controller {
 
         $this->load->view('v_home', $data);
     }
+
+    function add()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "kenaikan_kelas/v_add_kenaikan_kelas";
+
+        $this->load->view('v_home', $data);
+    }
     
 }
