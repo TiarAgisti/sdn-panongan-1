@@ -6,7 +6,7 @@ class kenaikan_kelas extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        $this->load->model('m_guru');
+        $this->load->model('m_kenaikan_kelas');
 
         if($this->session->userdata('status') != "login")
         {
