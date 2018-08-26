@@ -6,7 +6,7 @@ class mata_pelajaran extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        // $this->load->model('model_app');
+        $this->load->model('m_mapel');
 
         if($this->session->userdata('status') != "login")
         {
@@ -26,6 +26,9 @@ class mata_pelajaran extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "mata_pelajaran/v_list_mata_pelajaran";
+
+        $listmapel = $this->m_mapel->listmapel();
+        $data['listmapel'] = $listmapel;
         $this->load->view('v_home', $data);
     }
 
