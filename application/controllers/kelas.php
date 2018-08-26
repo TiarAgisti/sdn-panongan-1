@@ -6,7 +6,7 @@ class kelas extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        // $this->load->model('model_app');
+        $this->load->model('m_kelas');
 
         if($this->session->userdata('status') != "login")
         {
@@ -26,6 +26,9 @@ class kelas extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "kelas/v_list_kelas";
+
+        $getlist = $this->m_kelas->retrievekelas();
+        $data['listkelas'] = $getlist;
         $this->load->view('v_home', $data);
     }
 
