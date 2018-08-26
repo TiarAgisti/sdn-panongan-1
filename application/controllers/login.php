@@ -27,7 +27,8 @@ class login extends CI_Controller {
 			$result = $this->m_login->cek_login("users",$where)->result_array();
 			foreach ($result as $data) {
 				$data_session = array(
-					'nama' => $username,
+					'kode_user' => $data['kode_user'],
+					'nama' => $data['nama_user'],
 					'status' => "login",
 					'type' => $data['tipe_user']
 				);
