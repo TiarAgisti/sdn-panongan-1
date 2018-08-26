@@ -5,6 +5,7 @@
 			<table id="dtnilai" class="table table-bordered table-striped">
 				<thead>
 					<tr>
+						<th>Kode Murid</th>
 						<th>Nisn</th>
 						<th>Nama Murid</th>
 						<th>Kelas</th>
@@ -12,10 +13,12 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php ;foreach($listmurid as $row) :;?>
 					<tr>
-						<td>1112</td>
-						<td>Tiar</td>
-						<td>1A</td>
+						<td><?php echo $row->kode_murid;?></td>
+						<td><?php echo $row->nisn;?></td>
+						<td><?php echo $row->nama_murid;?></td>
+						<td><?php echo $row->ket_kelas;?></td>
 						<td>
 							<a href="<?php echo base_url();?>nilai_murid/add">
 								Masukan Nilai
@@ -26,6 +29,7 @@
 							</a>
 						</td>
 					</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>	
