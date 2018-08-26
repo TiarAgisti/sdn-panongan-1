@@ -5,9 +5,8 @@ class m_murid extends CI_Model{
         parent::__construct();
     }
 
-    function listmurid()
-    {
-        $query = $this->db-query('SELECT * FROM murid where status = 1');
-        return $query->result();
-    }
+    function listmurid(){
+		$query = $this->db->query('SELECT * FROM murid where status = 1');
+		return $query->result();
+	}	
 }
