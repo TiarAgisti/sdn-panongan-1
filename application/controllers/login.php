@@ -32,8 +32,7 @@ class login extends CI_Controller {
 					'type' => $data['tipe_user']
 				);
 				
-				$this->session->set_userdata($data_session);	
- 			 	# code...
+				$this->session->set_userdata($data_session);
 			} 
 			
 
