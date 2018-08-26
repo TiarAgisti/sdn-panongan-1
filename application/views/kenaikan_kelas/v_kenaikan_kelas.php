@@ -18,16 +18,18 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php ;foreach($listkenaikan as $row) :;?>
 					<tr>
-						<td>2018</td>
-						<td>1A</td>
-						<td>2A</td>
+						<td><?php echo $row->tahun_ajaran;?></td>
+						<td><?php echo $row->dari_kelas;?></td>
+						<td><?php echo $row->ke_kelas;?></td>
 						<td>
 							<a href="#">
 								Hapus
 							</a>
 						</td>
 					</tr>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 		</div>	
