@@ -14,11 +14,8 @@
 						<th>Kode Murid</th>
 						<th>NISN</th>
 						<th>Nama</th>
-						<th>Tanggal lahir</th>
-						<th>Jenis Kelamin</th>
-						<th>Alamat</th>
-						<th>No Telepon</th>
 						<th>Kelas</th>
+						<th>Tahun Ajaran</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -28,11 +25,8 @@
 						<td><?php echo $row->kode_murid;?></td>
 						<td><?php echo $row->nisn;?></td>
 						<td><?php echo $row->nama_murid;?></td>
-						<td><?php echo $row->tanggal_lahir;?></td>
-						<td><?php echo $row->jenis_kelamin;?></td>
-						<td><?php echo $row->alamat;?></td>
-						<td><?php echo $row->no_telp;?></td>
-						<td><?php echo $row->kode_kelas;?></td>
+						<td><?php echo $row->ket_kelas;?></td>
+						<td><?php echo $row->tahun_ajaran;?></td>
 						<td>
 							<a href="<?php echo base_url();?>murid/edit">
 								Ubah
