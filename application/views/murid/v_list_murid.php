@@ -23,15 +23,16 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php ; foreach($listmurid as $row) : ;?>
 					<tr>
-						<td>M00001</td>
-						<td>123456</td>
-						<td>Tiar Agisti</td>
-						<td>1990-08-31</td>
-						<td>Laki - Laki</td>
-						<td>Binong</td>
-						<td>085817579282</td>
-						<td>1A</td>
+						<td><?php echo $row->kode_murid;?></td>
+						<td><?php echo $row->nisn;?></td>
+						<td><?php echo $row->nama_murid;?></td>
+						<td><?php echo $row->tanggal_lahir;?></td>
+						<td><?php echo $row->jenis_kelamin;?></td>
+						<td><?php echo $row->alamat;?></td>
+						<td><?php echo $row->no_telp;?></td>
+						<td><?php echo $row->kode_kelas;?></td>
 						<td>
 							<a href="<?php echo base_url();?>murid/edit">
 								Ubah
@@ -41,6 +42,7 @@
 							</a>
 						</td>
 					</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>	
