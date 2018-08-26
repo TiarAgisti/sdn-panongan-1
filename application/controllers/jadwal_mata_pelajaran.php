@@ -6,7 +6,7 @@ class jadwal_mata_pelajaran extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        // $this->load->model('model_app');
+        $this->load->model('m_jadwal_mata_pelajaran');
 
         if($this->session->userdata('status') != "login")
         {
