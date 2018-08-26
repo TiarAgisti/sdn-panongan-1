@@ -27,6 +27,8 @@ class kenaikan_kelas extends CI_Controller {
         $data['footer'] = "footer/v_footer";
         $data['body'] = "kenaikan_kelas/v_kenaikan_kelas";
 
+        $getData = $this->m_kenaikan_kelas->retrievelist();
+        $data['listkenaikan'] = $getData;
         $this->load->view('v_home', $data);
     }
 
