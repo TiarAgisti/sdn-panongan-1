@@ -13,7 +13,7 @@
 					<tr>
 						<th>Kode Kelas</th>
 						<th>Kelas</th>
-						<th>Level</th>
+						<th>Keterangan</th>
 						<th></th>
 					</tr>
 				</thead>
