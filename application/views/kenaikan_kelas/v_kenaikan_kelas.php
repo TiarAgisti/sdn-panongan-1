@@ -3,7 +3,7 @@
 	<div class="panel-body">
 		<div class="box-body">
 			<div class="box-header">
-				<a href="#">
+				<a href="<?php echo base_url();?>kenaikan_kelas/add">
 					<button type="button" class="btn btn-info">Input Naik Kelas</button>
 				</a>
 			</div>
