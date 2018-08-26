@@ -18,10 +18,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php ; foreach($listkelas as $row) : ;?>
 					<tr>
-						<td>KLS0001</td>
-						<td>1</td>
-						<td>A</td>
+						<td><?php echo $row->kode_kelas;?></td>
+						<td><?php echo $row->tingkat_kelas;?></td>
+						<td><?php echo $row->keterangan_tingkat;?></td>
 						<td>
 							<a href="<?php echo base_url();?>kelas/edit">
 								Ubah
@@ -31,6 +32,7 @@
 							</a>
 						</td>
 					</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>	
