@@ -14,14 +14,17 @@
 						<th>Kode Wali Kelas</th>
 						<th>Nama Guru</th>
 						<th>Kelas</th>
+						<th>Tahun Ajaran</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
+					<?php ;foreach($listwalimurid as $row) :;?>
 					<tr>
-						<td>WL0001</td>
-						<td>Tiar</td>
-						<td>1A</td>
+						<td><?php echo $row->kode_wali;?></td>
+						<td><?php echo $row->nama_guru;?></td>
+						<td><?php echo $row->ket_kelas;?></td>
+						<td><?php echo $row->tahun_ajaran;?></td>
 						<td>
 							<a href="<?php echo base_url();?>wali_kelas/edit">
 								Ubah
@@ -31,6 +34,7 @@
 							</a>
 						</td>
 					</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>	
