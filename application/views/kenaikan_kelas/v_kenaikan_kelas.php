@@ -6,15 +6,11 @@
 				<a href="#">
 					<button type="button" class="btn btn-info">Input Naik Kelas</button>
 				</a>
-				<a href="#">
-					<button type="button" class="btn btn-danger">Input Tidak Naik Kelas</button>
-				</a>
 			</div>
 			<br/>
 			<table id="dtkenaikan" class="table table-bordered table-striped">
 				<thead>
 					<tr>
-						<th>No</th>
 						<th>Tahun Ajaran</th>
 						<th>Dari Kelas</th>
 						<th>Ke Kelas</th>
@@ -23,7 +19,6 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>1</td>
 						<td>2018</td>
 						<td>1A</td>
 						<td>2A</td>
