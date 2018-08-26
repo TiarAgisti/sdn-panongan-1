@@ -51,5 +51,42 @@ class mata_pelajaran extends CI_Controller {
         $data['body'] = "mata_pelajaran/v_edit_mata_pelajaran";
         $this->load->view('v_home', $data);
     }
-    
+
+    function simpan(){
+        $get_kode_mapel = $this->m_mapel->getKodeMapel();
+        $nama_mapel = trim($this->input->post('nm_mapel'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['kode_mapel'] = $get_kode_mapel;
+        $data['nama_mapel'] = $nama_mapel;
+        $data['created_date'] = $tanggal;
+        $data['created_by'] = $kode_user;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+        $data['status'] = 1;
+
+        $this->db->trans_start();
+
+ 	    $this->db->insert('mata_pelajaran', $data);
+
+ 	    $this->db->trans_complete();
+
+ 	    if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<strong>Peringatan!</strong> Data gagal tersimpan.
+				</div>");
+            redirect('mata_pelajaran');	
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('mata_pelajaran');	
+        }
+    }
 }
