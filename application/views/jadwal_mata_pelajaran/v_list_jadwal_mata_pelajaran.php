@@ -19,11 +19,12 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php ;foreach($listjadwal as $row) :;?>
 					<tr>
-						<td>JD0001</td>
-						<td>Senin</td>
-						<td>1</td>
-						<td>Matematika</td>
+						<td><?php echo $row->kode_jadwal;?></td>
+						<td><?php echo $row->ket_hari;?></td>
+						<td><?php echo $row->tingkat_kelas;?></td>
+						<td><?php echo $row->nama_mapel;?></td>
 						<td>
 							<a href="<?php echo base_url();?>jadwal_mata_pelajaran/edit">
 								Ubah
@@ -33,6 +34,7 @@
 							</a>
 						</td>
 					</tr>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 		</div>	
