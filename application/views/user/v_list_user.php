@@ -18,10 +18,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php ;foreach($listuser as $row) :; ?>
 					<tr>
-						<td>G00001</td>
-						<td>Tiar Agisti</td>
-						<td>Guru</td>
+						<td><?php echo $row->kode_user;?></td>
+						<td><?php echo $row->nama_user;?></td>
+						<td><?php echo $row->tipe_user;?></td>
 						<td>
 							<a href="<?php echo base_url();?>user/edit">
 								Ubah
@@ -31,6 +32,7 @@
 							</a>
 						</td>
 					</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>	
