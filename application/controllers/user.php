@@ -6,7 +6,7 @@ class user extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        // $this->load->model('model_app');
+        $this->load->model('m_login');
 
         if($this->session->userdata('status') != "login")
         {
@@ -26,6 +26,9 @@ class user extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "user/v_list_user";
+
+        $getData = $this->m_login->retrieveuser();
+        $data['listuser'] = $getData;
         $this->load->view('v_home', $data);
     }
 
