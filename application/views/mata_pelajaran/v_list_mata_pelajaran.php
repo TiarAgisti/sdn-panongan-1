@@ -17,9 +17,10 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php ; foreach($listmapel as $row) : ;?>
 					<tr>
-						<td>MP0001</td>
-						<td>Matematika</td>
+						<td><?php echo $row->kode_mapel;?></td>
+						<td><?php echo $row->nama_mapel;?></td>
 						<td>
 							<a href="<?php echo base_url();?>mata_pelajaran/edit">
 								Ubah
@@ -29,6 +30,7 @@
 							</a>
 						</td>
 					</tr>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 		</div>	
