@@ -1,7 +1,7 @@
 <?php
 
 class m_guru extends CI_Model{
-	 function __construct(){
+	function __construct(){
         parent::__construct();
     }
 

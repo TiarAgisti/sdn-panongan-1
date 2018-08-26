@@ -6,7 +6,7 @@ class murid extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        // $this->load->model('model_app');
+        $this->load->model('m_murid');
 
         if($this->session->userdata('status') != "login")
         {
@@ -26,6 +26,9 @@ class murid extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "murid/v_list_murid";
+
+        $listmurid = $this->m_murid->listmurid();
+        $data['listmurid'] = $listmurid;
         $this->load->view('v_home', $data);
     }
 
