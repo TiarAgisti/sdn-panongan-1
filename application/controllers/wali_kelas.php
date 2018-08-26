@@ -6,7 +6,7 @@ class wali_kelas extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        // $this->load->model('model_app');
+        $this->load->model('m_wali_kelas');
 
         if($this->session->userdata('status') != "login")
         {
@@ -26,6 +26,9 @@ class wali_kelas extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "wali_kelas/v_list_wali_kelas";
+
+        $getData = $this->m_wali_kelas->retrievewalikelas();
+        $data['listwalimurid'] = $getData;
         $this->load->view('v_home', $data);
     }
 
