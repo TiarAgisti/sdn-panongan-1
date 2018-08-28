@@ -24,10 +24,10 @@
 						<td><?php echo $row->tingkat_kelas;?></td>
 						<td><?php echo $row->keterangan_tingkat;?></td>
 						<td>
-							<a href="<?php echo base_url();?>kelas/edit">
+							<a href="<?php echo base_url();?>kelas/edit/<?php echo $row->kode_kelas;?>">
 								Ubah
 							</a> |
-							<a href="#">
+							<a href="<?php echo base_url();?>kelas/hapus/<?php echo $row->kode_kelas;?>">
 								Hapus
 							</a>
 						</td>
