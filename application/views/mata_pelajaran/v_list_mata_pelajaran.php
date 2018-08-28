@@ -26,7 +26,7 @@
 							<a href="<?php echo base_url();?>mata_pelajaran/edit/<?php echo $row->kode_mapel;?>">
 								Ubah
 							</a> |
-							<a href="#">
+							<a href="<?php echo base_url();?>mata_pelajaran/hapus/<?php echo $row->kode_mapel;?>">
 								Hapus
 							</a>
 						</td>
