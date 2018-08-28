@@ -23,7 +23,7 @@
 						<td><?php echo $row->kode_mapel;?></td>
 						<td><?php echo $row->nama_mapel;?></td>
 						<td>
-							<a href="<?php echo base_url();?>mata_pelajaran/edit">
+							<a href="<?php echo base_url();?>mata_pelajaran/edit/<?php echo $row->kode_mapel;?>">
 								Ubah
 							</a> |
 							<a href="#">
