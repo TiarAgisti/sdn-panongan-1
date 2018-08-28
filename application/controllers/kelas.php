@@ -49,6 +49,14 @@ class kelas extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "kelas/v_edit_kelas";
+
+        $kodeKelas = $this->uri->segment(3);
+        $query = "SELECT kode_kelas,tingkat_kelas,keterangan_tingkat FROM kelas WHERE kode_kelas = '$kodeKelas'";
+        $res = $this->db->query($query)->row();
+
+        $data['kode_kelas'] = $res->kode_kelas;		
+        $data['tingkat_kelas'] = $res->tingkat_kelas;
+        $data['keterangan_tingkat'] = $res->keterangan_tingkat;
         $this->load->view('v_home', $data);
     }
 
