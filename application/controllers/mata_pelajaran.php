@@ -129,4 +129,35 @@ class mata_pelajaran extends CI_Controller {
             redirect('mata_pelajaran');	
         }
     }
+
+    function hapus()
+    {
+        $kodeMapel = $this->uri->segment(3);
+        $data['kode_mapel'] = $kodeMapel;
+        $data['status'] = 0;
+
+        $this->db->trans_start();
+
+ 	    $this->db->where('kode_mapel', $kodeMapel);
+ 	    $this->db->update('mata_pelajaran', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<strong>Peringatan!</strong> Data gagal dihapus.
+				</div>");
+            redirect('mata_pelajaran');	
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil dihapus. 
+            </div>");
+            redirect('mata_pelajaran');	
+        }
+    }
 }
