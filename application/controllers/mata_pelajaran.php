@@ -49,6 +49,13 @@ class mata_pelajaran extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "mata_pelajaran/v_edit_mata_pelajaran";
+
+        $kodeMapel = $this->uri->segment(3);
+        $query = "SELECT kode_mapel,nama_mapel FROM mata_pelajaran WHERE kode_mapel = '$kodeMapel'";
+        $res = $this->db->query($query)->row();
+
+        $data['kode_mapel'] = $res->kode_mapel;		
+		$data['nama_mapel'] = $res->nama_mapel;
         $this->load->view('v_home', $data);
     }
 
@@ -73,6 +80,39 @@ class mata_pelajaran extends CI_Controller {
  	    $this->db->trans_complete();
 
  	    if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<strong>Peringatan!</strong> Data gagal tersimpan.
+				</div>");
+            redirect('mata_pelajaran');	
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('mata_pelajaran');	
+        }
+    }
+
+    function ubah()
+    {
+        $kode_mapel = trim($this->input->post('kd_mapel'));
+        $nama_mapel = trim($this->input->post('nm_mapel'));
+
+        $data['kode_mapel'] = $kode_mapel;
+        $data['nama_mapel'] = $nama_mapel;
+
+        $this->db->trans_start();
+
+ 	    $this->db->where('kode_mapel', $kode_mapel);
+ 	    $this->db->update('mata_pelajaran', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
         {
             $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
