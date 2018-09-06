@@ -60,5 +60,111 @@ class kelas extends CI_Controller {
         $this->load->view('v_home', $data);
     }
 
+    function simpan(){
+        $get_kode_kelas = $this->m_kelas->getKodeKelas();
+        $tingkat_kelas = trim($this->input->post('tngkt_kls'));
+        $ket_kelas = trim($this->input->post('ket_tngkt_kls'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['kode_kelas'] = $get_kode_kelas;
+        $data['tingkat_kelas'] = $tingkat_kelas;
+        $data['keterangan_tingkat'] = $ket_kelas;
+        $data['created_date'] = $tanggal;
+        $data['created_by'] = $kode_user;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+        $data['status'] = 1;
+
+        $this->db->trans_start();
+
+        $this->db->insert('kelas', $data);
+
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan.
+                </div>");
+            redirect('kelas'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('kelas'); 
+        }
+    }
+
+    function ubah()
+    {
+        $kode_kelas = trim($this->input->post('kd_kls'));
+        $tingkat_kelas = trim($this->input->post('tngkt_kls'));
+        $ket_tingkat = trim($this->input->post('ket_tngkt_kls'));
+
+        $data['kode_kelas'] = $kode_kelas;
+        $data['tingkat_kelas'] = $tingkat_kelas;
+        $data['keterangan_tingkat'] = $ket_tingkat;
+
+        $this->db->trans_start();
+
+        $this->db->where('kode_kelas', $kode_kelas);
+        $this->db->update('kelas', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan.
+                </div>");
+            redirect('kelas'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('kelas'); 
+        }
+    }
+
+    function hapus()
+    {
+        $kodeKelas = $this->uri->segment(3);
+        $data['kode_kelas'] = $kodeKelas;
+        $data['status'] = 0;
+
+        $this->db->trans_start();
+
+        $this->db->where('kode_kelas', $kodeKelas);
+        $this->db->update('kelas', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal dihapus.
+                </div>");
+            redirect('kelas'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil dihapus. 
+            </div>");
+            redirect('kelas'); 
+        }
+    }
+
     
 }
