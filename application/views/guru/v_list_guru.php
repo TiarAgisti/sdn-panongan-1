@@ -33,7 +33,7 @@
 						<td><?php echo $row->alamat;?></td>
 						<td><?php echo $row->no_telp;?></td>
 						<td>
-							<a href="<?php echo base_url();?>guru/edit">
+							<a href="<?php echo base_url();?>guru/edit/<?php echo $row->kode_guru;?>"">
 								Ubah
 							</a> |
 							<a href="#">

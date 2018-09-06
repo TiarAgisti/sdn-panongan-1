@@ -52,7 +52,17 @@ class guru extends CI_Controller {
         $data['footer'] = "footer/v_footer";
         $data['body'] = "guru/v_edit_guru";
 
-        
+        $kodeGuru = $this->uri->segment(3);
+        $query = "SELECT kode_guru,nip,nama_guru,tanggal_lahir,jenis_kelamin,alamat,no_telp FROM guru WHERE kode_guru = '$kodeGuru'";
+        $res = $this->db->query($query)->row();
+
+        $data['kode_guru'] = $res->kode_guru;     
+        $data['nip'] = $res->nip;
+        $data['nama_guru'] = $res->nama_guru;
+        $data['tanggal_lahir'] = $res->tanggal_lahir;
+        $data['jenis_kelamin'] = $res->jenis_kelamin;
+        $data['alamat'] = $res->alamat;
+        $data['no_telp'] = $res->no_telp;
         $this->load->view('v_home', $data);
     }
 
