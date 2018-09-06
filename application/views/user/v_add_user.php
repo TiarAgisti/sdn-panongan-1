@@ -3,7 +3,7 @@
         <div class="panel-heading">Tambah Data User</div>
         <div class="panel-body">
             <label>Kode User:</label>
-            <input type="text" class="form-control" name="kd_usr" readonly>
+            <input type="text" class="form-control" name="kd_usr" placeholder="Generate Otomatis" readonly>
             <label>Nama User:</label>
             <input type="text" class="form-control" name="nm_usr" maxlength="50">
             <label>Password User:</label>
