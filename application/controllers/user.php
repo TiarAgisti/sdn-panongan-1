@@ -61,5 +61,46 @@ class user extends CI_Controller {
         $this->load->view('v_home', $data);
     }
 
+    function simpan(){
+        $get_kode_user = $this->m_login->getKodeUser();
+        $nama_user = trim($this->input->post('nm_usr'));
+        $password_user = trim($this->input->post('pass_usr'));
+        $tipe_user = trim($this->input->post('tipe_usr'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['kode_user'] = $get_kode_user;
+        $data['nama_user'] = $nama_user;
+        $data['password_user'] = md5($password_user);
+        $data['tipe_user'] = $tipe_user;
+        $data['created_date'] = $tanggal;
+        $data['created_by'] = $kode_user;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+        $data['status'] = 1;
+
+        $this->db->trans_start();
+
+        $this->db->insert('users', $data);
+
+        $this->db->trans_complete();
+
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan.
+                </div>");
+            redirect('user'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('user'); 
+        }
+    }
     
 }
