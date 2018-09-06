@@ -54,9 +54,16 @@ class user extends CI_Controller {
         $query = "SELECT kode_user,nama_user,password_user,tipe_user FROM users WHERE kode_user = '$kodeUser'";
         $res = $this->db->query($query)->row();
 
+
+        $this->load->library('encrypt');
+        $myPassword = $res->password_user;
+        $key = 'thesecretkey_qwerty123456!@#$%^';
+        $decrypted_string = $this->encrypt->decode($myPassword, $key);
+
+
         $data['kode_user'] = $res->kode_user;     
         $data['nama_user'] = $res->nama_user;
-        $data['password_user'] = $res->password_user;
+        $data['password_user'] = $decrypted_string;
         $data['tipe_user'] = $res->tipe_user;
         $this->load->view('v_home', $data);
     }
@@ -98,6 +105,85 @@ class user extends CI_Controller {
             $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
             <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
             <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('user'); 
+        }
+    }
+
+
+    function ubah()
+    {
+        $kode_user = trim($this->input->post('kd_usr'));
+        $nama_user = trim($this->input->post('nm_usr'));
+        $password_user = trim($this->input->post('pass_usr'));
+        $tipe_user = trim($this->input->post('tipe_usr'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['kode_user'] = $kode_user;
+        $data['nama_user'] = $nama_user;
+        $data['password_user'] = md5($password_user);
+        $data['tipe_user'] = $tipe_user;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+
+        $this->db->trans_start();
+
+        $this->db->where('kode_user', $kode_user);
+        $this->db->update('users', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan.
+                </div>");
+            redirect('user'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('user'); 
+        }
+    }
+
+    function hapus()
+    {
+        $kodeUser = $this->uri->segment(3);
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+
+        $data['kode_user'] = $kodeUser;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+        $data['status'] = 0;
+
+        $this->db->trans_start();
+
+        $this->db->where('kode_user', $kodeUser);
+        $this->db->update('users', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal dihapus.
+                </div>");
+            redirect('user'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil dihapus. 
             </div>");
             redirect('user'); 
         }
