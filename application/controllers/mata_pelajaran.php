@@ -101,9 +101,13 @@ class mata_pelajaran extends CI_Controller {
     {
         $kode_mapel = trim($this->input->post('kd_mapel'));
         $nama_mapel = trim($this->input->post('nm_mapel'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
 
         $data['kode_mapel'] = $kode_mapel;
         $data['nama_mapel'] = $nama_mapel;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
 
         $this->db->trans_start();
 
@@ -133,7 +137,12 @@ class mata_pelajaran extends CI_Controller {
     function hapus()
     {
         $kodeMapel = $this->uri->segment(3);
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
         $data['kode_mapel'] = $kodeMapel;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
         $data['status'] = 0;
 
         $this->db->trans_start();

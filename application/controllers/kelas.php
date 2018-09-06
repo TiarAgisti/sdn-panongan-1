@@ -105,10 +105,14 @@ class kelas extends CI_Controller {
         $kode_kelas = trim($this->input->post('kd_kls'));
         $tingkat_kelas = trim($this->input->post('tngkt_kls'));
         $ket_tingkat = trim($this->input->post('ket_tngkt_kls'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
 
         $data['kode_kelas'] = $kode_kelas;
         $data['tingkat_kelas'] = $tingkat_kelas;
         $data['keterangan_tingkat'] = $ket_tingkat;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
 
         $this->db->trans_start();
 
@@ -138,7 +142,13 @@ class kelas extends CI_Controller {
     function hapus()
     {
         $kodeKelas = $this->uri->segment(3);
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+
         $data['kode_kelas'] = $kodeKelas;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
         $data['status'] = 0;
 
         $this->db->trans_start();
