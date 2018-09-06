@@ -49,6 +49,15 @@ class user extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "user/v_edit_user";
+
+        $kodeUser = $this->uri->segment(3);
+        $query = "SELECT kode_user,nama_user,password_user,tipe_user FROM users WHERE kode_user = '$kodeUser'";
+        $res = $this->db->query($query)->row();
+
+        $data['kode_user'] = $res->kode_user;     
+        $data['nama_user'] = $res->nama_user;
+        $data['password_user'] = $res->password_user;
+        $data['tipe_user'] = $res->tipe_user;
         $this->load->view('v_home', $data);
     }
 
