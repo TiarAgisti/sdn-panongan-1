@@ -114,5 +114,53 @@ class guru extends CI_Controller {
         }
     }
 
+    function ubah()
+    {
+        $kode_guru = trim($this->input->post('kd_guru'));
+        $nip = trim($this->input->post('nip_guru'));
+        $nama = trim($this->input->post('nm_guru'));
+        $tgl_lahir = trim($this->input->post('tgl_lahir'));
+        $jk = trim($this->input->post('jenis_kelamin'));
+        $alamat = trim($this->input->post('alamat_guru'));
+        $tlp = trim($this->input->post('tlp_guru'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['kode_guru'] = $kode_guru;
+        $data['nip'] = $nip;
+        $data['nama_guru'] = $nama;
+        $data['tanggal_lahir'] = $tgl_lahir;
+        $data['jenis_kelamin'] = $jk;
+        $data['alamat'] = $alamat;
+        $data['no_telp'] = $tlp;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+        $data['status'] = 1;
+
+        $this->db->trans_start();
+
+        $this->db->where('kode_guru', $kode_guru);
+        $this->db->update('guru', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan.
+                </div>");
+            redirect('guru'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('guru'); 
+        }
+    }
+
     
 }
