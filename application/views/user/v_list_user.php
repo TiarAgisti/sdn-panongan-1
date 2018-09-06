@@ -25,7 +25,7 @@
 						<td><?php echo $row->nama_user;?></td>
 						<td><?php echo $row->tipe_user;?></td>
 						<td>
-							<a href="<?php echo base_url();?>user/edit">
+							<a href="<?php echo base_url();?>user/edit/<?php echo $row->kode_user;?>">
 								Ubah
 							</a> |
 							<a href="#">
