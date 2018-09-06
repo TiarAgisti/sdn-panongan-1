@@ -14,4 +14,16 @@ class m_wali_kelas extends CI_Model{
         where wl.status = 1');
         return $query->result();
     }
+
+    function getKodeWaliKelas(){
+        $query = $this->db->query("SELECT max(kode_wali) as max_code FROM wali_kelas");
+        $row = $query->row_array();
+
+        $max_id = $row['max_code'];
+        $max_fix = (int) substr($max_id,1,5);
+
+        $max_wali = $max_fix + 1;
+        $kode_wali = "W".sprintf("%05s", $max_wali);
+        return $kode_wali;
+    }   
 }
