@@ -162,5 +162,39 @@ class guru extends CI_Controller {
         }
     }
 
-    
+    function hapus()
+    {
+        $kodeGuru = $this->uri->segment(3);
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['kode_guru'] = $kodeGuru;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+        $data['status'] = 0;
+
+        $this->db->trans_start();
+
+        $this->db->where('kode_guru', $kodeGuru);
+        $this->db->update('guru', $data);
+
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal dihapus.
+                </div>");
+            redirect('guru'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil dihapus. 
+            </div>");
+            redirect('guru'); 
+        }
+    }
 }

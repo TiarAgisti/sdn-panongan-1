@@ -33,10 +33,10 @@
 						<td><?php echo $row->alamat;?></td>
 						<td><?php echo $row->no_telp;?></td>
 						<td>
-							<a href="<?php echo base_url();?>guru/edit/<?php echo $row->kode_guru;?>"">
+							<a href="<?php echo base_url();?>guru/edit/<?php echo $row->kode_guru;?>">
 								Ubah
 							</a> |
-							<a href="#">
+							<a href="<?php echo base_url();?>guru/hapus/<?php echo $row->kode_guru;?>">
 								Hapus
 							</a>
 						</td>
