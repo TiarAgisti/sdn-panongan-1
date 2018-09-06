@@ -28,7 +28,7 @@
 							<a href="<?php echo base_url();?>user/edit/<?php echo $row->kode_user;?>">
 								Ubah
 							</a> |
-							<a href="#">
+							<a href="<?php echo base_url();?>user/hapus/<?php echo $row->kode_user;?>">
 								Hapus
 							</a>
 						</td>
