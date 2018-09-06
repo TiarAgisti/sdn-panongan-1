@@ -20,4 +20,16 @@ class m_jadwal_mata_pelajaran extends CI_Model{
         WHERE jdwl.status = 1');
         return $query->result();
     }
+
+    function getKodeJadwal(){
+        $query = $this->db->query("SELECT max(kode_jadwal) as max_code FROM jadwal_mapel");
+        $row = $query->row_array();
+
+        $max_id = $row['max_code'];
+        $max_fix = (int) substr($max_id,1,5);
+
+        $max_jadwal = $max_fix + 1;
+        $kode_jadwal = "J".sprintf("%05s", $max_jadwal);
+        return $kode_jadwal;
+    }   
 }
