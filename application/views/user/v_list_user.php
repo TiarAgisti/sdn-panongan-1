@@ -1,3 +1,4 @@
+<?php echo $this->session->flashdata("msg");?>
 <div class="panel panel-default">
 	<div class="panel-heading">Data User</div>
 	<div class="panel-body">
