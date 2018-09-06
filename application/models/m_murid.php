@@ -12,5 +12,17 @@ class m_murid extends CI_Model{
         inner join kelas as kls on kls.kode_kelas = m.kode_kelas
         where m.status = 1');
 		return $query->result();
-	}	
+	}
+
+    function getKodeMurid(){
+        $query = $this->db->query("SELECT max(kode_murid) as max_code FROM murid");
+        $row = $query->row_array();
+
+        $max_id = $row['max_code'];
+        $max_fix = (int) substr($max_id,1,5);
+
+        $max_murid = $max_fix + 1;
+        $kode_murid = "S".sprintf("%05s", $max_murid);
+        return $kode_murid;
+    }   	
 }
