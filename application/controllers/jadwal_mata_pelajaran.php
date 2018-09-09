@@ -39,6 +39,12 @@ class jadwal_mata_pelajaran extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "jadwal_mata_pelajaran/v_add_jadwal_mata_pelajaran";
+
+        $sql_kelas = "select kode_kelas,concat(tingkat_kelas,keterangan_tingkat) as ket_kelas from kelas where status = 1";
+        $sql_mapel = "select kode_mapel,nama_mapel from mata_pelajaran where status = 1";
+
+        $data['kelas'] =  $this->db->query($sql_kelas);
+        $data['mapel'] =  $this->db->query($sql_mapel);
         $this->load->view('v_home', $data);
     }
 
