@@ -12,9 +12,21 @@
             <input type="date" class="form-control" name="tgl_lahir" value="<?php echo $tanggal_lahir;?>">
             <label>Jenis Kelamin</label>
             <select name="jenis_kelamin" class="form-control">
-                <option value="<?php echo $jenis_kelamin;?>"><?php echo $jenis_kelamin;?></option>
-                <option value="Laki-Laki">Laki-Laki</option>
-                <option value="Perempuan">Perempuan</option>
+                <?php
+                    $selected_lk = "";
+                    $selected_pr = "";
+                    if( $jenis_kelamin == "Laki-Laki")
+                    {
+                        $selected_lk = "selected";
+                    }
+                    if( $jenis_kelamin == "Perempuan")
+                    {
+                        $selected_pr = "selected";
+                    }
+                ?>
+                <option value="">--PILIH--</option>
+                <option value="Laki-Laki" <?php echo $selected_lk;?>>Laki-Laki</option>
+                <option value="Perempuan" <?php echo $selected_pr;?>>Perempuan</option>
             </select>
             <label>Alamat:</label>
             <input type="text" class="form-control" name="alamat_guru" maxlength="255" value="<?php echo $alamat;?>" required>
