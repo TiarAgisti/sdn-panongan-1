@@ -29,10 +29,10 @@
 						<td><?php echo $row->ket_kelas;?></td>
 						<td><?php echo $row->tahun_ajaran;?></td>
 						<td>
-							<a href="<?php echo base_url();?>murid/edit">
+							<a href="<?php echo base_url();?>murid/edit/<?php echo $row->kode_murid; ?>">
 								Ubah
 							</a> |
-							<a href="#">
+							<a href="<?php echo base_url();?>murid/hapus/<?php echo $row->kode_murid; ?>">
 								Hapus
 							</a>
 						</td>

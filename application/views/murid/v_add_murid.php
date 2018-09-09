@@ -23,11 +23,17 @@
             <label>Kelas:</label>
             <select name="kls_murid" class="form-control">
                 <option value="">--PILIH--</option>
-                <option value="1A">1A</option>
-                <option value="2A">2A</option>
+                <?php
+                foreach($kelas->result() as $db)
+                {                    
+                ?>
+                    <option value="<?php echo $db->kode_kelas;?>"><?php echo $db->ket_kelas;?></option>
+                <?php
+                }
+                ?>
             </select>
             <label>Tahun Ajaran:</label>
-            <input type="number" class="form-control" name="thn_ajaran" readonly required>
+            <input type="number" class="form-control" name="thn_ajaran" value="<?php echo $thn_ajaran; ?>" readonly required>
             <br/>
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="<?php echo base_url();?>murid"  class="btn btn-danger">
