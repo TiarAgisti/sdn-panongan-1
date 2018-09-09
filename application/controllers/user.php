@@ -55,15 +55,14 @@ class user extends CI_Controller {
         $res = $this->db->query($query)->row();
 
 
-        $this->load->library('encrypt');
-        $myPassword = $res->password_user;
-        $key = 'thesecretkey_qwerty123456!@#$%^';
-        $decrypted_string = $this->encrypt->decode($myPassword, $key);
-
+        // $this->load->library('encrypt');
+        // $myPassword = $res->password_user;
+        // $key = 'thesecretkey_qwerty123456!@#$%^';
+        // $decrypted_string = $this->encrypt->decode($myPassword, $key);
 
         $data['kode_user'] = $res->kode_user;     
         $data['nama_user'] = $res->nama_user;
-        $data['password_user'] = $decrypted_string;
+        $data['password_user'] = '';
         $data['tipe_user'] = $res->tipe_user;
         $this->load->view('v_home', $data);
     }
@@ -113,23 +112,28 @@ class user extends CI_Controller {
 
     function ubah()
     {
-        $kode_user = trim($this->input->post('kd_usr'));
+        $kdUser = trim($this->input->post('kd_usr'));
         $nama_user = trim($this->input->post('nm_usr'));
         $password_user = trim($this->input->post('pass_usr'));
         $tipe_user = trim($this->input->post('tipe_usr'));
         $kode_user=$this->session->userdata('kode_user');
         $tanggal = date('Y-m-d');
 
-        $data['kode_user'] = $kode_user;
+
+        if ($password_user <> ''){
+            $data['password_user'] = md5($password_user);
+        }
+
+
+        $data['kode_user'] = $kdUser;
         $data['nama_user'] = $nama_user;
-        $data['password_user'] = md5($password_user);
         $data['tipe_user'] = $tipe_user;
         $data['updated_date'] = $tanggal;
         $data['updated_by'] = $kode_user;
 
         $this->db->trans_start();
 
-        $this->db->where('kode_user', $kode_user);
+        $this->db->where('kode_user', $kdUser);
         $this->db->update('users', $data);
 
         $this->db->trans_complete();

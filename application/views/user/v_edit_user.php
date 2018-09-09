@@ -7,7 +7,7 @@
             <label>Nama User:</label>
             <input type="text" class="form-control" name="nm_usr" maxlength="50" value="<?php echo $nama_user;?>" required>
             <label>Password User:</label>
-            <input type="password" class="form-control" name="pass_usr" maxlength="20" value="<?php echo $password_user;?>" required>
+            <input type="password" class="form-control" name="pass_usr" maxlength="20" value="<?php echo $password_user;?>">
             <label>Tipe User:</label>
             <select name="tipe_usr" class="form-control">
                 <option value="<?php echo $tipe_user;?>" selected><?php echo $tipe_user;?></option>
@@ -15,6 +15,8 @@
                 <option value="Orangtua">Orangtua</option>
                 <option value="Admin">Admin</option>
             </select>
+            <br/>
+            <label style="color: red;">Note:Kosongkan Password,jika tidak ingin merubah password</label>
             <br/>
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="<?php echo base_url();?>user"  class="btn btn-danger">
