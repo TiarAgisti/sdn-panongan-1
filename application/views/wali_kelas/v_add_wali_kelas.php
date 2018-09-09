@@ -28,6 +28,8 @@
                 }
                 ?>
             </select>
+            <label>Tahun Ajaran:</label>
+            <input type="text" class="form-control" name="thn_ajaran" value="<?php echo $thn_ajaran_wali;?>" readonly required>
             <br/>
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="<?php echo base_url();?>wali_kelas"  class="btn btn-danger">

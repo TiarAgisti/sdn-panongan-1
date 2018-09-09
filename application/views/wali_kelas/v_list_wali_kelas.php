@@ -27,10 +27,10 @@
 						<td><?php echo $row->ket_kelas;?></td>
 						<td><?php echo $row->tahun_ajaran;?></td>
 						<td>
-							<a href="<?php echo base_url();?>wali_kelas/edit">
+							<a href="<?php echo base_url();?>wali_kelas/edit/<?php echo $row->kode_wali;?>">
 								Ubah
 							</a> |
-							<a href="#">
+							<a href="<?php echo base_url();?>wali_kelas/hapus/<?php echo $row->kode_wali;?>">
 								Hapus
 							</a>
 						</td>
