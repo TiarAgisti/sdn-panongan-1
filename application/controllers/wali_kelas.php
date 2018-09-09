@@ -39,6 +39,12 @@ class wali_kelas extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "wali_kelas/v_add_wali_kelas";
+
+        $sql_kelas = "select kode_kelas,concat(tingkat_kelas,keterangan_tingkat) as ket_kelas from kelas where status = 1";
+        $sql_guru = "select kode_guru,concat(nip,' - ',nama_guru) as ket_guru from guru where status = 1";
+
+        $data['kelas'] = $this->db->query($sql_kelas);
+        $data['guru'] = $this->db->query($sql_guru);
         $this->load->view('v_home', $data);
     }
 
