@@ -6,6 +6,7 @@
             <input type="text" class="form-control" name="kd_wali" value="<?php echo $kd_wali;?>" readonly required>
             <label>Nama Guru</label>
             <select name="kd_guru" class="form-control">
+                <option value="">--PILIH--</option>
                 <?php
                     foreach($guru->result() as $row)
                     {
