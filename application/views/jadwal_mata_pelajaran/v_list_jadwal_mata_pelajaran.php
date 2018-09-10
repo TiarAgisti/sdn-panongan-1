@@ -27,7 +27,7 @@
 						<td><?php echo $row->tingkat_kelas;?></td>
 						<td><?php echo $row->nama_mapel;?></td>
 						<td>
-							<a href="<?php echo base_url();?>jadwal_mata_pelajaran/edit">
+							<a href="<?php echo base_url();?>jadwal_mata_pelajaran/edit/<?php echo $row->kode_jadwal;?>">
 								Ubah
 							</a> |
 							<a href="#">

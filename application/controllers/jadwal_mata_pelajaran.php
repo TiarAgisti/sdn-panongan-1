@@ -55,6 +55,20 @@ class jadwal_mata_pelajaran extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "jadwal_mata_pelajaran/v_edit_jadwal_mata_pelajaran";
+
+        $kodeJadwal = $this->uri->segment(3);
+        $query = "SELECT kode_jadwal,hari,kode_kelas,kode_mapel FROM jadwal_mapel where kode_jadwal = '$kodeJadwal'";
+        $res = $this->db->query($query)->row();
+
+        $sql_kelas = "select kode_kelas,concat(tingkat_kelas,keterangan_tingkat) as ket_kelas from kelas where status = 1";
+        $sql_mapel = "select kode_mapel,nama_mapel from mata_pelajaran where status = 1";
+
+        $data['kd_jdwl'] = $res->kode_jadwal;
+        $data['hari_jdwl'] = $res->hari;
+        $data['kd_kls'] = $res->kode_kelas;
+        $data['kd_mapel'] = $res->kode_mapel;
+        $data['kelas'] = $this->db->query($sql_kelas);
+        $data['mapel'] = $this->db->query($sql_mapel);
         $this->load->view('v_home', $data);
     }
 }
