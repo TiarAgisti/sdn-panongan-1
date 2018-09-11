@@ -20,7 +20,7 @@
 						<td><?php echo $row->nama_murid;?></td>
 						<td><?php echo $row->ket_kelas;?></td>
 						<td>
-							<a href="<?php echo base_url();?>nilai_murid/add">
+							<a href="<?php echo base_url();?>nilai_murid/add/<?php echo $row->kode_murid;?>">
 								Masukan Nilai
 							</a>
 							||
