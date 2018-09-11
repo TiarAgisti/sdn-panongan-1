@@ -30,7 +30,7 @@
 							<a href="<?php echo base_url();?>jadwal_mata_pelajaran/edit/<?php echo $row->kode_jadwal;?>">
 								Ubah
 							</a> |
-							<a href="#">
+							<a href="<?php echo base_url();?>jadwal_mata_pelajaran/hapus/<?php echo $row->kode_jadwal;?>">
 								Hapus
 							</a>
 						</td>
