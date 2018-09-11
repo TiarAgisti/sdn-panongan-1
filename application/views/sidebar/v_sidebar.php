@@ -62,6 +62,9 @@
 						<a class="nav-link" href="<?php echo base_url();?>jadwal_mata_pelajaran">Jadwal Mata Pelajaran</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url();?>kkm">KKM</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>nilai_murid">Nilai Murid</a>
 					</li>
 				</ul>
