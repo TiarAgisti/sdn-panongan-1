@@ -66,7 +66,7 @@
                 <?php
                     foreach($mapel->result() as $row)
                     {
-                        if($kd_mapel == $row->kode_kelas)
+                        if($kd_mapel == $row->kode_mapel)
                         {
                             $selected = "selected";
                         }

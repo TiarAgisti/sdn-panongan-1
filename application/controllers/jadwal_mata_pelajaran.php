@@ -112,4 +112,43 @@ class jadwal_mata_pelajaran extends CI_Controller {
             redirect('jadwal_mata_pelajaran'); 
         }
     }
+
+    function ubah()
+    {
+        $kodeJadwal = trim($this->input->post('kd_jdwl'));
+        $hari = trim($this->input->post('kd_hari'));
+        $kd_kls = trim($this->input->post('kd_kelas'));
+        $kd_mapel = trim($this->input->post('kd_mapel'));
+        $kd_kls = trim($this->input->post('kd_kelas'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['hari'] = $hari;
+        $data['kode_kelas'] = $kd_kls;
+        $data['kode_mapel'] = $kd_mapel;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+
+        $this->db->trans_start();
+        $this->db->where('kode_jadwal', $kodeJadwal);
+        $this->db->update('jadwal_mapel', $data);
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan.
+                </div>");
+            redirect('jadwal_mata_pelajaran'); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('jadwal_mata_pelajaran'); 
+        }
+    }
 }
