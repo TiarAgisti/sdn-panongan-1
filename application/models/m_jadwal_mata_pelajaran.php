@@ -12,7 +12,7 @@ class m_jadwal_mata_pelajaran extends CI_Model{
         WHEN jdwl.hari = 5 THEN "JUMAT" 
         WHEN jdwl.hari = 6 THEN "SABTU" 
         WHEN jdwl.hari = 7 THEN "MINGGU" ELSE "-" END as ket_hari
-        ,kls.tingkat_kelas
+        ,concat(kls.tingkat_kelas,kls.keterangan_tingkat) as tingkat_kelas
         ,mapel.nama_mapel
         FROM jadwal_mapel as jdwl
         INNER JOIN kelas as kls ON kls.kode_kelas = jdwl.kode_kelas
