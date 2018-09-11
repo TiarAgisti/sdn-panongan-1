@@ -24,7 +24,7 @@
 								Masukan Nilai
 							</a>
 							||
-							<a href="<?php echo base_url();?>nilai_murid/list_nilai_murid">
+							<a href="<?php echo base_url();?>nilai_murid/list_nilai_murid/<?php echo $row->kode_murid;?>">
 								Lihat Nilai
 							</a>
 						</td>
