@@ -82,7 +82,7 @@ class nilai_murid extends CI_Controller {
         $data['kd_kelas'] = $res->kode_kelas;
         $data['kelas'] = $res->ket_kelas;
         $data['list_nilai'] = $this->db->query($sql_nilai)->result();
-        
+
         $this->load->view('v_home', $data);
     }
 
@@ -96,6 +96,25 @@ class nilai_murid extends CI_Controller {
 
         $kodeMurid = $this->uri->segment(3);
         $kodeMapel = $this->uri->segment(4);
+
+        $sql_nilai = "select nm.kode_murid,nm.kode_mapel,nm.kode_kelas,nm.tahun_ajaran,nm.nilai
+        ,m.nama_murid,m.nisn,mapel.nama_mapel,concat(kls.tingkat_kelas,kls.keterangan_tingkat) as ket_kelas from nilai_murid as nm
+        inner join murid as m on m.kode_murid = nm.kode_murid
+        inner join kelas as kls on kls.kode_kelas = nm.kode_kelas
+        inner join mata_pelajaran as mapel on mapel.kode_mapel = nm.kode_mapel
+        where nm.kode_murid = '$kodeMurid' and nm.kode_mapel = '$kodeMapel'";
+
+        $res = $this->db->query($sql_nilai)->row();
+        $data['kd_murid'] = $res->kode_murid;
+        $data['nisn_murid'] = $res->nisn;
+        $data['nm_murid'] = $res->nama_murid;
+        $data['thn_ajaran'] = $res->tahun_ajaran;
+        $data['kd_mapel'] = $res->kode_mapel;
+        $data['nm_mapel'] = $res->nama_mapel;
+        $data['nilai'] = $res->nilai;
+        $data['kd_kelas'] = $res->kode_kelas;
+        $data['kelas'] = $res->ket_kelas;
+
 
         $this->load->view('v_home', $data);
     }
