@@ -3,7 +3,6 @@
 	<div class="panel-body">
         <input type="text" class="form-control" name="kd_murid" value="<?php echo $kd_murid;?>" readonly hidden>
         <label>NISN:</label>
-        <input type="text" class="form-control" name="nisn_murid" readonly required>
         <input type="text" class="form-control" name="nisn_murid" value="<?php echo $nisn_murid;?>" readonly required>
         <label>Nama:</label>
         <input type="text" class="form-control" name="nm_murid" value="<?php echo $nm_murid;?>" readonly required>
