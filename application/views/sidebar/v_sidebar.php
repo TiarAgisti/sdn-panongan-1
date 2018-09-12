@@ -31,6 +31,9 @@
 			<div class="collapse" id="ui-basic">
 				<ul class="nav flex-column sub-menu">
 					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url();?>user">User</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>murid">Murid</a>
 					</li>
 					<li class="nav-item">
@@ -42,7 +45,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>mata_pelajaran">Mata Pelajaran</a>
 					</li>
-
 				</ul>
 			</div>
 		</li>
@@ -67,25 +69,17 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>nilai_murid">Nilai Murid</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url();?>kenaikan_kelas">Setting Kenaikan Kelas</a>
+					</li>
 				</ul>
 			</div>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="setting">
-				<i class="menu-icon mdi mdi-restart"></i>
-				<span class="menu-title">Setting</span>
-				<i class="menu-arrow"></i>
-			</a>
-			<div class="collapse" id="setting">
-				<ul class="nav flex-column sub-menu">
-					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url();?>user">User</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url();?>kenaikan_kelas">Kenaikan Kelas</a>
-					</li>
-				</ul>
-			</div>
+        	<a class="nav-link" href="#">
+	          <i class="menu-icon mdi mdi-table"></i>
+	          <span class="menu-title">Raport Murid</span>
+	        </a>
 		</li>
 	</ul>
 </nav>
