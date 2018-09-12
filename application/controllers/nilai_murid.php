@@ -161,5 +161,45 @@ class nilai_murid extends CI_Controller {
             redirect('nilai_murid'); 
         }
     }
+
+    function ubah()
+    {
+        $kd_murid = trim($this->input->post('kd_murid'));
+        $kd_kls = trim($this->input->post('kd_kls'));
+        $kd_mapel = trim($this->input->post('kd_mapel'));
+        $thn_ajaran = trim($this->input->post('thn_ajaran'));
+        $nilai = trim($this->input->post('nilai_murid'));
+        $kode_user=$this->session->userdata('kode_user');
+        $tanggal = date('Y-m-d');
+
+        $data['nilai'] = $nilai;
+        $data['updated_date'] = $tanggal;
+        $data['updated_by'] = $kode_user;
+
+        $this->db->trans_start();
+        $this->db->where('kode_murid', $kd_murid);
+        $this->db->where('kode_kelas', $kd_kls);
+        $this->db->where('kode_mapel', $kd_mapel);
+        $this->db->where('tahun_ajaran', $thn_ajaran);
+        $this->db->update('nilai_murid', $data);
+        $this->db->trans_complete();
+        
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan.
+                </div>");
+            redirect('nilai_murid/list_nilai_murid/'.$kd_murid); 
+        }
+        else 
+        {
+            $this->session->set_flashdata("msg", "<div class='alert alert-info' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+            <strong>Informasi!</strong> Data berhasil tersimpan. 
+            </div>");
+            redirect('nilai_murid/list_nilai_murid/'.$kd_murid); 
+        }
+    }
     
 }
