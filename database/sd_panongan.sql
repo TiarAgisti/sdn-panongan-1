@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 14, 2018 at 01:09 AM
+-- Generation Time: Sep 15, 2018 at 03:12 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -105,22 +105,6 @@ INSERT INTO `kelas` (`kode_kelas`, `tingkat_kelas`, `keterangan_tingkat`, `creat
 ('K00003', 1, 'D', '2018-09-06', 'G00001', '2018-09-06', 'G00001', 1),
 ('K00004', 2, 'A', '2018-09-06', 'G00001', '2018-09-06', 'G00001', 1),
 ('K00005', 3, 'A', '2018-09-06', 'G00001', '2018-09-06', 'G00001', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kenaikan_kelas`
---
-
-CREATE TABLE `kenaikan_kelas` (
-  `tahun_ajaran` int(11) NOT NULL,
-  `batas_mapel` int(11) NOT NULL,
-  `created_date` date NOT NULL,
-  `created_by` varchar(6) NOT NULL,
-  `updated_date` date NOT NULL,
-  `updated_by` varchar(6) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -231,6 +215,42 @@ INSERT INTO `nilai_murid` (`kode_murid`, `kode_kelas`, `kode_mapel`, `tahun_ajar
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `raport_detail`
+--
+
+CREATE TABLE `raport_detail` (
+  `raport_detail_id` bigint(20) NOT NULL,
+  `raport_id` bigint(20) NOT NULL,
+  `kode_mapel` varchar(6) NOT NULL,
+  `nilai` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `raport_header`
+--
+
+CREATE TABLE `raport_header` (
+  `kode_raport` bigint(20) NOT NULL,
+  `kode_guru` varchar(6) NOT NULL,
+  `kode_murid` varchar(6) NOT NULL,
+  `tahun_ajaran` int(11) NOT NULL,
+  `sakit` int(11) NOT NULL,
+  `ijin` int(11) NOT NULL,
+  `alpa` int(11) NOT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `created_at` date NOT NULL,
+  `created_by` varchar(6) NOT NULL,
+  `updated_at` date NOT NULL,
+  `updated_by` varchar(6) NOT NULL,
+  `kode_kelas` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -305,12 +325,6 @@ ALTER TABLE `kelas`
   ADD PRIMARY KEY (`kode_kelas`);
 
 --
--- Indexes for table `kenaikan_kelas`
---
-ALTER TABLE `kenaikan_kelas`
-  ADD PRIMARY KEY (`tahun_ajaran`);
-
---
 -- Indexes for table `kkm_murid`
 --
 ALTER TABLE `kkm_murid`
@@ -335,6 +349,18 @@ ALTER TABLE `nilai_murid`
   ADD PRIMARY KEY (`kode_murid`,`kode_kelas`,`kode_mapel`);
 
 --
+-- Indexes for table `raport_detail`
+--
+ALTER TABLE `raport_detail`
+  ADD PRIMARY KEY (`raport_detail_id`);
+
+--
+-- Indexes for table `raport_header`
+--
+ALTER TABLE `raport_header`
+  ADD PRIMARY KEY (`kode_raport`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -345,6 +371,22 @@ ALTER TABLE `users`
 --
 ALTER TABLE `wali_kelas`
   ADD PRIMARY KEY (`kode_wali`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `raport_detail`
+--
+ALTER TABLE `raport_detail`
+  MODIFY `raport_detail_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `raport_header`
+--
+ALTER TABLE `raport_header`
+  MODIFY `kode_raport` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
