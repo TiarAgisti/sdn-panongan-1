@@ -1,4 +1,4 @@
-<form method="post" action="#">
+<form method="post" action="<?php echo base_url();?>raport_murid/list_murid">
     <div class="panel panel-default">
         <div class="panel-heading">Input Raport Murid</div>
         <div class="panel-body">        
