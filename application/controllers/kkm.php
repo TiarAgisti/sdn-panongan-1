@@ -25,7 +25,7 @@ class kkm extends CI_Controller {
         $data['navbar'] = "navbar/v_navbar";
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
-        $data['body'] = "user/v_list_kkm";
+        $data['body'] = "kkm/v_list_kkm";
 
         $getData = $this->m_kkm->retrievekkm();
         $data['listkkm'] = $getData;
@@ -38,8 +38,13 @@ class kkm extends CI_Controller {
         $data['navbar'] = "navbar/v_navbar";
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
-        $data['body'] = "user/v_add_kkm";
+        $data['body'] = "kkm/v_add_kkm";
 
+        $sql_mapel = "select kode_mapel,nama_mapel from mata_pelajaran where status = 1";
+        $data['listMapel'] = $this->db->query($sql_mapel);
+
+        $sql_tingkat_kelas = "select distinct tingkat_kelas from kelas where status = 1";
+        $data['listKelas'] = $this->db->query($sql_tingkat_kelas);
         $this->load->view('v_home', $data);
     }
 
@@ -49,7 +54,7 @@ class kkm extends CI_Controller {
         $data['navbar'] = "navbar/v_navbar";
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
-        $data['body'] = "user/v_edit_kkm";
+        $data['body'] = "kkm/v_edit_kkm";
 
         $kodeKkm = $this->uri->segment(3);
         $query = "SELECT kode_kkm,kode_mapel,tingkat_kelas,nilai_kkm FROM kkm_murid WHERE kode_kkm = '$kodeKkm'";
