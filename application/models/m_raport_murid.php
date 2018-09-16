@@ -11,7 +11,7 @@ class m_raport_murid extends CI_Model{
 	}
 
 	function retrieveMuridByKelas($kodeKelas){
-		$query = $this->db->query('SELECT kode_murid,nisn,nama_murid,tahun_ajaran FROM murid where status = 1 and kode_kelas = "$kodeKelas"');
+		$query = $this->db->query("SELECT kode_murid,nisn,nama_murid,tahun_ajaran FROM murid where status = 1 and kode_kelas = '$kodeKelas'");
 		return $query->result();	
 	}
 }

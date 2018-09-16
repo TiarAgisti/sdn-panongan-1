@@ -17,7 +17,6 @@ class raport_murid extends CI_Controller {
         }
     }
 
-    
     function index()
     {
         $data['header'] = "header/v_header";
@@ -28,6 +27,20 @@ class raport_murid extends CI_Controller {
 
         $resListKelas = $this->m_raport_murid->retrieveKelas();
         $data['resKelas'] = $resListKelas;
+        $this->load->view('v_home', $data);
+    }
+
+    function list_murid()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "raport_murid/v_raport_list_murid";
+
+        $kdKls = trim($this->input->post('kd_kls'));
+        $resListMurid = $this->m_raport_murid->retrieveMuridByKelas($kdKls);
+        $data['resMurid'] = $resListMurid;
         $this->load->view('v_home', $data);
     }
 
