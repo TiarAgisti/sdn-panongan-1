@@ -6,7 +6,7 @@ class raport_murid extends CI_Controller {
 
 	function __construct(){
         parent::__construct();
-        $this->load->model('m_guru');
+        $this->load->model('m_raport_murid');
         if($this->session->userdata('status') != "login")
         {
             $this->session->set_flashdata("msg", "<div class='alert alert-info'>
@@ -26,8 +26,8 @@ class raport_murid extends CI_Controller {
         $data['footer'] = "footer/v_footer";
         $data['body'] = "raport_murid/v_cari_kelas";
 
-        $listguru = $this->m_guru->listguru();
-        $data['listguru'] = $listguru;
+        $resListKelas = $this->m_raport_murid->retrieveKelas();
+        $data['resKelas'] = $resListKelas;
         $this->load->view('v_home', $data);
     }
 

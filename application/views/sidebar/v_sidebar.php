@@ -81,7 +81,7 @@
 			<div class="collapse" id="Raport">
 				<ul class="nav flex-column sub-menu">
 					<li class="nav-item">
-						<a class="nav-link" href="#">Input Raport</a>
+						<a class="nav-link" href="<?php echo base_url();?>raport_murid">Input Raport</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Lihat Raport</a>

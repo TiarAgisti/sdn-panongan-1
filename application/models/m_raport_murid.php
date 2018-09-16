@@ -5,8 +5,8 @@ class m_raport_murid extends CI_Model{
         parent::__construct();
     }
 
-	function listKelas(){
-		$query = $this->db->query('SELECT kode_kelas,concat(tingkat_kelas,keterangan_kelas) as ket_kelas FROM kelas where status = 1');
+	function retrieveKelas(){
+		$query = $this->db->query('SELECT kode_kelas,concat(tingkat_kelas,keterangan_tingkat) as ket_kelas FROM kelas where status = 1');
 		return $query->result();
 	}
 }
