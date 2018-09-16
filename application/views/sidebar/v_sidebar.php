@@ -69,17 +69,25 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>nilai_murid">Nilai Murid</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url();?>kenaikan_kelas">Setting Kenaikan Kelas</a>
-					</li>
 				</ul>
 			</div>
 		</li>
 		<li class="nav-item">
-        	<a class="nav-link" href="#">
-	          <i class="menu-icon mdi mdi-table"></i>
-	          <span class="menu-title">Raport Murid</span>
-	        </a>
+			<a class="nav-link" data-toggle="collapse" href="#Raport" aria-expanded="false" aria-controls="Raport">
+				<i class="menu-icon mdi mdi-chart-line"></i>
+				<span class="menu-title">Raport Murid</span>
+				<i class="menu-arrow"></i>
+			</a>
+			<div class="collapse" id="Raport">
+				<ul class="nav flex-column sub-menu">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Input Raport</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Lihat Raport</a>
+					</li>
+				</ul>
+			</div>
 		</li>
 	</ul>
 </nav>

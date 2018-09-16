@@ -26,6 +26,22 @@ class home extends CI_Controller {
         $data['sidebar'] = "sidebar/v_sidebar";
         $data['footer'] = "footer/v_footer";
         $data['body'] = "dashboard/v_dashboard";
+
+        $guru = "SELECT COUNT(*) AS jml_guru FROM guru where status = 1";
+        $jmlGuru = $this->db->query($guru)->row();
+        $data['jml_guru'] =  $jmlGuru->jml_guru;
+
+        $murid = "SELECT COUNT(*) AS jml_murid FROM murid where status = 1";
+        $jmlMurid = $this->db->query($murid)->row();
+        $data['jml_murid'] =  $jmlMurid->jml_murid;
+
+        $mapel = "SELECT COUNT(*) AS jml_mapel FROM mata_pelajaran where status = 1";
+        $jmlMapel = $this->db->query($mapel)->row();
+        $data['jumlah_mapel'] =  $jmlMapel->jml_mapel;
+
+        $kelas = "SELECT COUNT(*) AS jml_kelas FROM kelas where status = 1";
+        $jmlKls = $this->db->query($kelas)->row();
+        $data['jumlah_kelas'] =  $jmlKls->jml_kelas;
         $this->load->view('v_home', $data);
     }
 

@@ -15,7 +15,7 @@
       	<div class="float-right">
     		  <p class="mb-0 text-right">Guru</p>
     			<div class="fluid-container">
-        		<h3 class="font-weight-medium text-right mb-0">24</h3>
+        		<h3 class="font-weight-medium text-right mb-0"><?php echo $jml_guru;?></h3>
       		</div>
     		</div>
     	</div>
@@ -32,7 +32,7 @@
         <div class="float-right">
           <p class="mb-0 text-right">Murid</p>
           <div class="fluid-container">
-            <h3 class="font-weight-medium text-right mb-0">246</h3>
+            <h3 class="font-weight-medium text-right mb-0"><?php echo $jml_murid;?></h3>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
         <div class="float-right">
           <p class="mb-0 text-right">Mata Pelajaran</p>
           <div class="fluid-container">
-            <h3 class="font-weight-medium text-right mb-0">34</h3>
+            <h3 class="font-weight-medium text-right mb-0"><?php echo $jumlah_mapel;?></h3>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
         <div class="float-right">
           <p class="mb-0 text-right">Kelas</p>
           <div class="fluid-container">
-            <h3 class="font-weight-medium text-right mb-0">14</h3>
+            <h3 class="font-weight-medium text-right mb-0"><?php echo $jumlah_kelas;?></h3>
           </div>
         </div>
       </div>
