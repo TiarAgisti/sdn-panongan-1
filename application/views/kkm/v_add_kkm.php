@@ -8,7 +8,7 @@
             <select name="kode_mapel" class="form-control">
                 <option value="">--PILIH--</option>
                 <?php
-                foreach($ListMapel->result() as $db)
+                foreach($listMapel->result() as $db)
                 {                    
                 ?>
                     <option value="<?php echo $db->kode_mapel;?>"><?php echo $db->nama_mapel;?></option>
@@ -20,7 +20,7 @@
             <select name="tingkat_kelas" class="form-control">
                 <option value="">--PILIH--</option>
                 <?php
-                foreach($ListKelas->result() as $row)
+                foreach($listKelas->result() as $row)
                 {                    
                 ?>
                     <option value="<?php echo $row->tingkat_kelas;?>"><?php echo $row->tingkat_kelas;?></option>

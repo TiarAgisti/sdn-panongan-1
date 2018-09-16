@@ -41,10 +41,9 @@ class kkm extends CI_Controller {
         $data['body'] = "kkm/v_add_kkm";
 
         $sql_mapel = "select kode_mapel,nama_mapel from mata_pelajaran where status = 1";
+        $sql_kelas = "SELECT DISTINCT tingkat_kelas from kelas where status = 1";
         $data['listMapel'] = $this->db->query($sql_mapel);
-
-        $sql_tingkat_kelas = "select distinct tingkat_kelas from kelas where status = 1";
-        $data['listKelas'] = $this->db->query($sql_tingkat_kelas);
+        $data['listKelas'] = $this->db->query($sql_kelas);
         $this->load->view('v_home', $data);
     }
 
@@ -60,6 +59,11 @@ class kkm extends CI_Controller {
         $query = "SELECT kode_kkm,kode_mapel,tingkat_kelas,nilai_kkm FROM kkm_murid WHERE kode_kkm = '$kodeKkm'";
         $res = $this->db->query($query)->row();
 
+        $sql_mapel = "select kode_mapel,nama_mapel from mata_pelajaran where status = 1";
+        $sql_kelas = "SELECT DISTINCT tingkat_kelas from kelas where status = 1";
+
+        $data['listMapel'] = $this->db->query($sql_mapel);
+        $data['listKelas'] = $this->db->query($sql_kelas);
         $data['kode_kkm'] = $res->kode_kkm;     
         $data['kode_mapel'] = $res->kode_mapel;
         $data['tingkat_kelas'] = $res->tingkat_kelas;
