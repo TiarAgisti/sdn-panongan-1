@@ -3,7 +3,7 @@
 	<div class="panel-heading">Data KKM</div>
 	<div class="panel-body">
 		<div class="box-header">
-			<a href="<?php echo base_url();?>user/add">
+			<a href="<?php echo base_url();?>kkm/add">
 				<button type="button" class="btn btn-info">Tambah Data</button>
 			</a>
 		</div>
