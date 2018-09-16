@@ -3,7 +3,7 @@
 class m_kkm extends CI_Model{	
 	function retrievekkm(){
 		$query = $this->db->query('SELECT kkm.kode_kkm,kkm.tingkat_kelas,kkm.nilai_kkm,mapel.nama_mapel FROM kkm_murid as kkm 
-		inner join mata_pelajaran as mapel on mapel.kode_mapel = kkm.kode_mapel where status = 1');
+		inner join mata_pelajaran as mapel on mapel.kode_mapel = kkm.kode_mapel where kkm.status = 1');
 		return $query->result();
 	}
 
