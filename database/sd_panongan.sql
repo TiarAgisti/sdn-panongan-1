@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 22, 2018 at 04:51 AM
+-- Generation Time: Sep 22, 2018 at 04:58 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -227,8 +227,8 @@ INSERT INTO `nilai_murid` (`kode_murid`, `kode_kelas`, `kode_mapel`, `tahun_ajar
 --
 
 CREATE TABLE `raport_detail` (
-  `raport_detail_id` bigint(20) NOT NULL,
-  `raport_id` bigint(20) NOT NULL,
+  `kode_raport_detail` bigint(20) NOT NULL,
+  `kode_raport` bigint(20) NOT NULL,
   `kode_mapel` varchar(6) NOT NULL,
   `nilai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -360,7 +360,7 @@ ALTER TABLE `nilai_murid`
 -- Indexes for table `raport_detail`
 --
 ALTER TABLE `raport_detail`
-  ADD PRIMARY KEY (`raport_detail_id`);
+  ADD PRIMARY KEY (`kode_raport_detail`);
 
 --
 -- Indexes for table `raport_header`
@@ -388,7 +388,7 @@ ALTER TABLE `wali_kelas`
 -- AUTO_INCREMENT for table `raport_detail`
 --
 ALTER TABLE `raport_detail`
-  MODIFY `raport_detail_id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_raport_detail` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
