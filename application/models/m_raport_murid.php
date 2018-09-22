@@ -18,4 +18,12 @@ class m_raport_murid extends CI_Model{
 			WHERE m.status = 1 and m.kode_kelas = '$kodeKelas'");
 		return $query->result();	
 	}
+
+	 public function get_kode_raport() {
+  		$query = $this->db->query("SELECT COUNT(kode_raport) as max_kode_raport FROM raport_header"); 
+  		$row = $query->row_array();
+  		$max_id = $row['max_kode_raport'];
+  		$kodeRaport = $max_id + 1;
+  		return $kodeRaport;
+ 	}
 }
