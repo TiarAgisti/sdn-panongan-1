@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 15, 2018 at 03:12 AM
+-- Generation Time: Sep 22, 2018 at 04:51 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -123,6 +123,14 @@ CREATE TABLE `kkm_murid` (
   `updated_date` date NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kkm_murid`
+--
+
+INSERT INTO `kkm_murid` (`kode_kkm`, `kode_mapel`, `tingkat_kelas`, `nilai_kkm`, `created_by`, `created_date`, `updated_by`, `updated_date`, `status`) VALUES
+('N00001', 'M00001', 1, 65, 'U00002', '2018-09-16', 'U00002', '2018-09-16', 1),
+('N00002', 'M00002', 2, 55, 'U00002', '2018-09-16', 'U00002', '2018-09-16', 0);
 
 -- --------------------------------------------------------
 
@@ -381,12 +389,6 @@ ALTER TABLE `wali_kelas`
 --
 ALTER TABLE `raport_detail`
   MODIFY `raport_detail_id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `raport_header`
---
-ALTER TABLE `raport_header`
-  MODIFY `kode_raport` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
