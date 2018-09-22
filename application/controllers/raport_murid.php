@@ -44,5 +44,16 @@ class raport_murid extends CI_Controller {
         $this->load->view('v_home', $data);
     }
 
+    function add_raport()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "raport_murid/v_add_raport_murid";
+
+        $this->load->view('v_home', $data);
+    }
+
     
 }

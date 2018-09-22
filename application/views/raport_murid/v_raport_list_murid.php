@@ -15,6 +15,7 @@
 						<th>NISN</th>
 						<th>Nama</th>
 						<th>Tahun Ajaran</th>
+						<th>Kelas</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -25,8 +26,9 @@
 						<td><?php echo $row->nisn;?></td>
 						<td><?php echo $row->nama_murid;?></td>
 						<td><?php echo $row->tahun_ajaran;?></td>
+						<td><?php echo $row->ket_kelas;?></td>
 						<td>
-							<a href="#">
+							<a href="<?php echo base_url();?>raport_murid/add_raport">
 								Buat Raport
 							</a>
 						</td>
