@@ -28,7 +28,7 @@
 						<td><?php echo $row->tahun_ajaran;?></td>
 						<td><?php echo $row->ket_kelas;?></td>
 						<td>
-							<a href="<?php echo base_url();?>raport_murid/add_raport">
+							<a href="<?php echo base_url();?>raport_murid/add_raport/<?php echo $row->kode_murid;?>/<?php echo $row->kode_kelas;?>">
 								Buat Raport
 							</a>
 						</td>
