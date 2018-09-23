@@ -25,7 +25,7 @@ class m_raport_murid extends CI_Model{
 	}
 
 	function get_kode_raport() {
-  		$query = $this->db->query("SELECT COUNT(kode_raport) as max_kode_raport FROM raport_header"); 
+  		$query = $this->db->query("SELECT MAX(kode_raport) as max_kode_raport FROM raport_header"); 
   		$row = $query->row_array();
   		$max_id = $row['max_kode_raport'];
   		$kodeRaport = $max_id + 1;

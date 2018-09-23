@@ -76,6 +76,7 @@ class raport_murid extends CI_Controller {
         $get_kode_raport_header = $this->m_raport_murid->get_kode_raport();
         $kodeGuru = trim($this->input->post('kd_guru'));
         $kodeMurid = trim($this->input->post('kd_murid'));
+        $kodeKelas = trim($this->input->post('kd_kelas'));
         $tahunAjaran = date('Y');
         $sakit = trim($this->input->post('txt_sakit'));
         $ijin = trim($this->input->post('txt_ijin'));
@@ -88,6 +89,7 @@ class raport_murid extends CI_Controller {
         $data['kode_guru'] = $kodeGuru;
         $data['kode_raport'] = $get_kode_raport_header;
         $data['kode_murid'] = $kodeMurid;
+        $data['kode_kelas'] = $kodeKelas;
         $data['tahun_ajaran'] = $tahunAjaran;
         $data['sakit'] = $sakit;
         $data['ijin'] = $ijin;
