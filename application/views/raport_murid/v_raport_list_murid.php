@@ -20,7 +20,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php ; foreach($resMurid as $row) : ;?>
+					<?php foreach($resMurid as $row){;?>
 					<tr>
 						<td><?php echo $row->kode_murid;?></td>
 						<td><?php echo $row->nisn;?></td>
@@ -33,7 +33,7 @@
 							</a>
 						</td>
 					</tr>
-					<?php endforeach; ?>
+					<?php }; ?>
 				</tbody>
 			</table>
 		</div>	
