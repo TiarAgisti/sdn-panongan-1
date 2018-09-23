@@ -62,4 +62,43 @@ class m_raport_murid extends CI_Model{
 		$res = $this->db->query($query)->result();
 		return $res;
  	}
+
+ 	function RetrieveRaportHeader($pilih,$txtCari)
+ 	{
+ 		$query = "";
+ 		if ($pilih == 1){
+ 			$query = "SELECT rh.kode_raport,rh.kode_guru , g.nama_guru, m.nama_murid, CONCAT(k.tingkat_kelas,k.keterangan_tingkat) AS ket_kelas
+			, rh.tahun_ajaran, rh.sakit, rh.ijin, rh.alpa, rh.keterangan
+			FROM raport_header AS rh
+			INNER JOIN guru AS g ON g.kode_guru = rh.kode_guru
+			INNER JOIN murid AS m ON m.kode_murid = rh.kode_murid
+			INNER JOIN kelas AS k ON k.kode_kelas = rh.kode_kelas
+			WHERE rh.kode_murid = '$txtCari'";
+ 		}else{
+	 		$query = "SELECT rh.kode_raport,rh.kode_guru , g.nama_guru, m.nama_murid, CONCAT(k.tingkat_kelas,k.keterangan_tingkat) AS ket_kelas
+			, rh.tahun_ajaran, rh.sakit, rh.ijin, rh.alpa, rh.keterangan
+			FROM raport_header AS rh
+			INNER JOIN guru AS g ON g.kode_guru = rh.kode_guru
+			INNER JOIN murid AS m ON m.kode_murid = rh.kode_murid
+			INNER JOIN kelas AS k ON k.kode_kelas = rh.kode_kelas
+			WHERE m.nisn = '$txtCari'";
+ 		}
+ 		
+ 		$res =  $this->db->query($query)->row();
+ 		return $res;
+ 	}
+
+ 	function RetrieveRaportDetail($kodeRaport)
+ 	{
+ 		$query = "SELECT rd.kode_raport,rd.kode_raport_detail,rd.kode_mapel,mapel.nama_mapel
+			,kkm.nilai_kkm,rd.nilai,CASE WHEN rd.nilai > kkm.nilai_kkm THEN 'Terpenuhi'ELSE 'Tidak Terpenuhi' END keterangan
+			FROM raport_detail AS rd
+			INNER JOIN raport_header AS rh ON rh.kode_raport = rd.kode_raport
+			INNER JOIN mata_pelajaran AS mapel ON mapel.kode_mapel = rd.kode_mapel     
+			INNER JOIN kelas AS k ON rh.kode_kelas = k.kode_kelas
+			INNER JOIN kkm_murid AS kkm ON kkm.kode_mapel = rd.kode_mapel AND kkm.tingkat_kelas = k.tingkat_kelas
+			WHERE rd.kode_raport = '$kodeRaport'";
+		$res = $this->db->query($query)->result();
+		return $res;
+ 	}
 }

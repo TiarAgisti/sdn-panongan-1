@@ -30,6 +30,45 @@ class raport_murid extends CI_Controller {
         $this->load->view('v_home', $data);
     }
 
+    function view_raport()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "raport_murid/v_raport";
+
+        $this->load->view('v_home', $data);
+    }
+
+    function get_raport()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "raport_murid/v_detail_raport";
+
+        $cmbPilih = trim($this->input->post('cmb_pilih'));
+        $txtCari = trim($this->input->post('txt_cari'));
+
+        $res = $this->m_raport_murid->RetrieveRaportHeader($cmbPilih,$txtCari);
+        $kodeRaport = $res->kode_raport;
+        $listNilai = $this->m_raport_murid->RetrieveRaportDetail($kodeRaport);
+
+        $data['nama_guru'] = $res->nama_guru;
+        $data['nama_murid'] = $res->nama_murid;
+        $data['ket_kelas'] = $res->ket_kelas;
+        $data['thn_ajaran'] = $res->tahun_ajaran;
+        $data['sakit'] = $res->sakit;
+        $data['ijin'] = $res->ijin;
+        $data['alpa'] = $res->alpa;
+        $data['keterangan'] = $res->keterangan;
+        $data['list_nilai'] = $listNilai;
+
+        $this->load->view('v_home', $data);
+    }
+
     function list_murid()
     {
         $data['header'] = "header/v_header";

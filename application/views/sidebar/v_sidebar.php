@@ -84,7 +84,7 @@
 						<a class="nav-link" href="<?php echo base_url();?>raport_murid">Input Raport</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Lihat Raport</a>
+						<a class="nav-link" href="<?php echo base_url();?>raport_murid/view_raport">Lihat Raport</a>
 					</li>
 				</ul>
 			</div>
