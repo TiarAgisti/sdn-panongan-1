@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 22, 2018 at 04:58 AM
+-- Generation Time: Sep 23, 2018 at 06:14 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -74,7 +74,7 @@ CREATE TABLE `jadwal_mapel` (
 --
 
 INSERT INTO `jadwal_mapel` (`kode_jadwal`, `hari`, `kode_kelas`, `kode_mapel`, `created_date`, `created_by`, `updated_date`, `updated_by`, `status`) VALUES
-('J00001', 1, 'K00004', '', '2018-08-17', 'U00001', '2018-09-11', 'U00002', 1),
+('J00001', 1, 'K00004', 'M00003', '2018-08-17', 'U00001', '2018-09-11', 'U00002', 1),
 ('J00002', 2, 'K00003', 'M00004', '2018-09-11', 'U00002', '2018-09-11', 'U00002', 0),
 ('J00003', 3, 'K00004', 'M00004', '2018-09-11', 'U00002', '2018-09-11', 'U00002', 1);
 
@@ -233,6 +233,14 @@ CREATE TABLE `raport_detail` (
   `nilai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `raport_detail`
+--
+
+INSERT INTO `raport_detail` (`kode_raport_detail`, `kode_raport`, `kode_mapel`, `nilai`) VALUES
+(1, 2, 'M00001', 78),
+(2, 3, 'M00001', 78);
+
 -- --------------------------------------------------------
 
 --
@@ -255,6 +263,13 @@ CREATE TABLE `raport_header` (
   `updated_by` varchar(6) NOT NULL,
   `kode_kelas` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `raport_header`
+--
+
+INSERT INTO `raport_header` (`kode_raport`, `kode_guru`, `kode_murid`, `tahun_ajaran`, `sakit`, `ijin`, `alpa`, `keterangan`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `kode_kelas`) VALUES
+(3, 'G00002', 'S00001', 2018, 1, 1, 1, 'Naik Kelas', '1', '2018-09-23', 'U00002', '2018-09-23', 'U00002', 'K00001');
 
 -- --------------------------------------------------------
 
@@ -388,7 +403,7 @@ ALTER TABLE `wali_kelas`
 -- AUTO_INCREMENT for table `raport_detail`
 --
 ALTER TABLE `raport_detail`
-  MODIFY `kode_raport_detail` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_raport_detail` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
