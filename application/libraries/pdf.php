@@ -11,6 +11,7 @@
  * @license        MIT License
  * @link        https://github.com/ardianta/codeigniter-dompdf
  */
+require_once("dompdf/autoload.inc.php");
 use Dompdf\Dompdf;
 class Pdf extends Dompdf{
     /**

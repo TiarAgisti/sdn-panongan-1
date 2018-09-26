@@ -1,8 +1,10 @@
-<form method="post" action="#">
+<form method="post" action="<?php echo base_url();?>raport_murid/laporan_pdf" target="_blank">
     <div class="panel panel-default">
         <div class="panel-heading">Raport Murid</div>
         <div class="panel-body">
             <div class="row">
+                <input type="text" class="form-control" name="cmb_pilih" maxlength="25" value="<?php echo $res_pilih;?>" hidden>
+                <input type="text" class="form-control" name="txt_cari" value="<?php echo $res_cari;?>" hidden>
                 <div class="col-md-6">
                     <label>Wali Kelas:</label>
                     <input type="text" class="form-control" name="nm_guru" maxlength="25" value="<?php echo $nama_guru;?>" readonly>

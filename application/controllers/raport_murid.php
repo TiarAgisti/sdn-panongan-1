@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class raport_murid extends CI_Controller {
 
+    // require_once 'dompdf/autoload.inc.php';
 
 	function __construct(){
         parent::__construct();
@@ -66,8 +67,8 @@ class raport_murid extends CI_Controller {
         $data['keterangan'] = $res->keterangan;
         $data['list_nilai'] = $listNilai;
 
-        $data['cmb_pilih'] = $cmbPilih;
-        $data['txt_cari'] = $txtCari;
+        $data['res_pilih'] = $cmbPilih;
+        $data['res_cari'] = $txtCari;
         // echo ".$res->nama_murid.";
         // exit();
         $this->load->view('v_home', $data);
@@ -179,7 +180,9 @@ class raport_murid extends CI_Controller {
 
     public function laporan_pdf()
     {
-        $res = $this->m_raport_murid->RetrieveRaportHeader($_GET['pilihan'],$_GET['cari']);
+        $cmbPilih = trim($this->input->post('cmb_pilih'));
+        $txtCari = trim($this->input->post('txt_cari'));
+        $res = $this->m_raport_murid->RetrieveRaportHeader($cmbPilih,$txtCari);
         $kodeRaport = $res->kode_raport;
         $listNilai = $this->m_raport_murid->RetrieveRaportDetail($kodeRaport);
 
