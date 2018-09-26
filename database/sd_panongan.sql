@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 23, 2018 at 06:14 PM
+-- Generation Time: Sep 27, 2018 at 01:34 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -239,7 +239,8 @@ CREATE TABLE `raport_detail` (
 
 INSERT INTO `raport_detail` (`kode_raport_detail`, `kode_raport`, `kode_mapel`, `nilai`) VALUES
 (1, 2, 'M00001', 78),
-(2, 3, 'M00001', 78);
+(2, 3, 'M00001', 78),
+(3, 4, 'M00001', 78);
 
 -- --------------------------------------------------------
 
@@ -269,7 +270,8 @@ CREATE TABLE `raport_header` (
 --
 
 INSERT INTO `raport_header` (`kode_raport`, `kode_guru`, `kode_murid`, `tahun_ajaran`, `sakit`, `ijin`, `alpa`, `keterangan`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`, `kode_kelas`) VALUES
-(3, 'G00002', 'S00001', 2018, 1, 1, 1, 'Naik Kelas', '1', '2018-09-23', 'U00002', '2018-09-23', 'U00002', 'K00001');
+(3, 'G00002', 'S00001', 2018, 1, 1, 1, 'Naik Kelas', '1', '2018-09-23', 'U00002', '2018-09-23', 'U00002', 'K00001'),
+(4, 'G00002', 'S00001', 2018, 3, 3, 3, 'Naik Kelas', '1', '2018-09-26', 'U00002', '2018-09-26', 'U00002', 'K00001');
 
 -- --------------------------------------------------------
 
@@ -403,7 +405,7 @@ ALTER TABLE `wali_kelas`
 -- AUTO_INCREMENT for table `raport_detail`
 --
 ALTER TABLE `raport_detail`
-  MODIFY `kode_raport_detail` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kode_raport_detail` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
