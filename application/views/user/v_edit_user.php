@@ -5,7 +5,7 @@
             <label>Kode User:</label>
             <input type="text" class="form-control" name="kd_usr" value="<?php echo $kode_user;?>" readonly>
             <label>Nama User:</label>
-            <input type="text" class="form-control" name="nm_usr" maxlength="50" value="<?php echo $nama_user;?>" required>
+            <input type="text" class="form-control" name="nm_usr" maxlength="50" value="<?php echo $nama_user;?>" pattern="[A-Za-z]{3,}" title="hanya boleh huruf" required>
             <label>Password User:</label>
             <input type="password" class="form-control" name="pass_usr" maxlength="20" value="<?php echo $password_user;?>">
             <p style="color:red;">*jika tidak ingin merubah password,kosongkan saja</p>

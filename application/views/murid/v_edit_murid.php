@@ -5,9 +5,9 @@
             <label>Kode Murid:</label>
             <input type="text" class="form-control" name="kd_murid" value="<?php echo $kode_murid; ?>" readonly required>
             <label>NISN:</label>
-            <input type="text" class="form-control" name="nisn_murid" maxlength="20" value="<?php echo $nisn; ?>" required>
+            <input type="number" class="form-control" name="nisn_murid" maxlength="20" value="<?php echo $nisn; ?>" required>
             <label>Nama:</label>
-            <input type="text" class="form-control" name="nm_murid" maxlength="150" value="<?php echo $nama_murid; ?>" required>
+            <input type="text" class="form-control" name="nm_murid" maxlength="150" value="<?php echo $nama_murid; ?>" pattern="[A-Za-z]{3,}" title="hanya boleh huruf" required>
             <label>Tgl Lahir</label>
             <input type="date" class="form-control" name="tgl_lahir_murid" value="<?php echo $tanggal_lahir; ?>">
             <label>Jenis Kelamin</label>

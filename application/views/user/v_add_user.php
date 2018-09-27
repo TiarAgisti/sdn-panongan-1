@@ -5,7 +5,7 @@
             <label>Kode User:</label>
             <input type="text" class="form-control" name="kd_usr" placeholder="Generate Otomatis" readonly>
             <label>Nama User:</label>
-            <input type="text" class="form-control" name="nm_usr" maxlength="50">
+            <input type="text" class="form-control" name="nm_usr" pattern="[A-Za-z]{3,}" title="hanya boleh huruf" maxlength="50">
             <label>Password User:</label>
             <input type="password" class="form-control" name="pass_usr" maxlength="20">
             <label>Tipe User:</label>

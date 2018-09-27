@@ -5,9 +5,9 @@
             <label>Kode Murid:</label>
             <input type="text" class="form-control" name="kd_murid" placeholder="Generate Otomatis" readonly required>
             <label>NISN:</label>
-            <input type="text" class="form-control" name="nisn_murid" maxlength="20" required>
+            <input type="number" class="form-control" name="nisn_murid" required>
             <label>Nama:</label>
-            <input type="text" class="form-control" name="nm_murid" maxlength="150" required>
+            <input type="text" class="form-control" name="nm_murid" maxlength="150" pattern="[A-Za-z]{3,}" title="hanya boleh huruf"required>
             <label>Tgl Lahir</label>
             <input type="date" class="form-control" name="tgl_lahir_murid">
             <label>Jenis Kelamin</label>

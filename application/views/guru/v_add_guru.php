@@ -5,9 +5,9 @@
             <label>Kode Guru:</label>
             <input type="text" class="form-control" name="kd_guru" placeholder="Generate Otomatis" readonly required>
             <label>NIP:</label>
-            <input type="text" class="form-control" name="nip_guru" maxlength="25" required>
+            <input type="number" class="form-control" name="nip_guru" maxlength="25" required>
             <label>Nama:</label>
-            <input type="text" class="form-control" name="nm_guru" maxlength="150" required>
+            <input type="text" class="form-control" name="nm_guru" maxlength="150" pattern="[A-Za-z]{3,}" title="hanya boleh huruf" required>
             <label>Tgl Lahir</label>
             <input type="date" class="form-control" name="tgl_lahir">
             <label>Jenis Kelamin</label>
@@ -19,7 +19,7 @@
             <label>Alamat:</label>
             <input type="text" class="form-control" name="alamat_guru" maxlength="255" required>
             <label>No Telepon:</label>
-            <input type="number" class="form-control" name="tlp_guru" maxlength="15" required>
+            <input type="number" class="form-control" name="tlp_guru" required>
             <br/>
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="<?php echo base_url();?>guru"  class="btn btn-danger">
