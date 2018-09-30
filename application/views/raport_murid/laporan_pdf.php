@@ -11,8 +11,12 @@
     <header class="clearfix">
       <div id="logo">
         <!-- <img src="sd.png"> -->
-        <h1>SD NEGERI PANONGAN 1</h1>
-        <h3>JL. Pertamina Panongan Kecamatan Panongan Kabupaten Tangerang - Banten</h3>
+        <!-- <h2>SD NEGERI PANONGAN 1</h2>
+        <h3>JL. Pertamina Panongan Kecamatan Panongan Kabupaten Tangerang - Banten</h3> -->
+
+        <b>SD NEGERI PANONGAN 1</b>
+        <div>JL.Pertamina Panongan Kecamatan Panongan Kabupaten Tangerang - Banten</div>
+
       </div>
       <h2>RAPORT MURID</h2>
       <div id="project" >
