@@ -11,10 +11,23 @@
             <p style="color:red;">*jika tidak ingin merubah password,kosongkan saja</p>
             <label>Tipe User:</label>
             <select name="tipe_usr" class="form-control">
-                <option value="<?php echo $tipe_user;?>" selected><?php echo $tipe_user;?></option>
-                <option value="Guru">Guru</option>
-                <option value="Orangtua">Orangtua</option>
-                <option value="Admin">Admin</option>
+                <?php
+                    $selected_guru = "";
+                    $selected_ortu = "";
+                    $selected_Admin = "";
+                    if ($tipe_user == "Guru"){
+                        $selected_guru = "selected";
+                    }
+                    if ($tipe_user == "Orangtua"){
+                        $selected_ortu = "selected";
+                    }
+                    if ($tipe_user == "Admin"){
+                        $selected_Admin = "selected";
+                    }
+                ?>
+                <option value="Guru" <?php echo $selected_guru; ?>>Guru</option>
+                <option value="Orangtua" <?php echo $selected_ortu; ?>>Orangtua</option>
+                <option value="Admin" <?php echo $selected_Admin; ?>>Admin</option>
             </select>
             <br/>
             <br/>

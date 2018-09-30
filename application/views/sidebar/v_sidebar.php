@@ -22,6 +22,7 @@
 	          <span class="menu-title">Dashboard</span>
 	        </a>
       	</li>
+      	<?php if ($this->session->userdata('type') == 'Admin'){; ?>
 		<li class="nav-item">
 			<a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
 				<i class="menu-icon mdi mdi-content-copy"></i>
@@ -48,6 +49,7 @@
 				</ul>
 			</div>
 		</li>
+		<?php }; ?>
 		
 		<li class="nav-item">
 			<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
@@ -57,18 +59,24 @@
 			</a>
 			<div class="collapse" id="auth">
 				<ul class="nav flex-column sub-menu">
+			      	<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>wali_kelas">Wali Kelas</a>
 					</li>
+					<?php };?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>jadwal_mata_pelajaran">Jadwal Mata Pelajaran</a>
 					</li>
+					<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>kkm">KKM</a>
 					</li>
+					<?php };?>
+					<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>nilai_murid">Nilai Murid</a>
 					</li>
+					<?php };?>
 				</ul>
 			</div>
 		</li>
@@ -80,9 +88,11 @@
 			</a>
 			<div class="collapse" id="Raport">
 				<ul class="nav flex-column sub-menu">
+			      	<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>raport_murid">Input Raport</a>
 					</li>
+					<?php };?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>raport_murid/view_raport">Lihat Raport</a>
 					</li>

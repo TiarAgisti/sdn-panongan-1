@@ -1,3 +1,4 @@
+<?php echo $this->session->flashdata("msg");?>
 <form method="post" action="<?php echo base_url();?>jadwal_mata_pelajaran/simpan">
     <div class="panel panel-default">
         <div class="panel-heading">Tambah Data Jadwal Mata Pelajaran</div>

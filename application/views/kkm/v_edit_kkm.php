@@ -26,7 +26,6 @@
             </select>
             <label>Tingkat Kelas:</label>
             <select name="tingkat_kelas" class="form-control">
-                <option value="">--PILIH--</option>
                 <?php
                     foreach($listKelas->result() as $row)
                     {

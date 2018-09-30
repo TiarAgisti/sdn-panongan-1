@@ -82,6 +82,30 @@ class jadwal_mata_pelajaran extends CI_Controller {
         $kode_user=$this->session->userdata('kode_user');
         $tanggal = date('Y-m-d');
 
+        if($hari == ""){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan,hari belum di pilih.
+                </div>");
+            redirect('jadwal_mata_pelajaran/add'); 
+        }
+
+        if($kd_kls == ""){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan,kelas belum di pilih.
+                </div>");
+            redirect('jadwal_mata_pelajaran/add');
+        }
+
+        if($kd_mapel == ""){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan,mata pelajaran belum di pilih.
+                </div>");
+            redirect('jadwal_mata_pelajaran/add');
+        }
+
         $data['kode_jadwal'] = $get_kode_jadwal;
         $data['hari'] = $hari;
         $data['kode_kelas'] = $kd_kls;

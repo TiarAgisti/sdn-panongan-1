@@ -39,7 +39,6 @@
                     }
                     
                 ?>
-                <option value="">--PILIH--</option>
                 <option value="1" <?php echo $selected_1;?> >1</option>
                 <option value="2" <?php echo $selected_2;?> >2</option>
                 <option value="3" <?php echo $selected_3;?>>3</option>

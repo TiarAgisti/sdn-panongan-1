@@ -40,8 +40,10 @@ class wali_kelas extends CI_Controller {
         $data['footer'] = "footer/v_footer";
         $data['body'] = "wali_kelas/v_add_wali_kelas";
 
-        $sql_kelas = "select kode_kelas,concat(tingkat_kelas,keterangan_tingkat) as ket_kelas from kelas where status = 1";
-        $sql_guru = "select kode_guru,concat(nip,' - ',nama_guru) as ket_guru from guru where status = 1";
+        $sql_kelas = "select kode_kelas,concat(tingkat_kelas,keterangan_tingkat) as ket_kelas from kelas where status = 1 
+                        and kode_kelas not in(select kode_kelas from wali_kelas where status = 1)";
+        $sql_guru = "select kode_guru,concat(nip,' - ',nama_guru) as ket_guru from guru where status = 1 
+                    and kode_guru not in(select kode_guru from wali_kelas where status = 1)";
 
         $data['kelas'] = $this->db->query($sql_kelas);
         $data['guru'] = $this->db->query($sql_guru);
@@ -82,6 +84,22 @@ class wali_kelas extends CI_Controller {
         $thn_ajaran = trim($this->input->post('thn_ajaran')); 
         $kode_user=$this->session->userdata('kode_user');
         $tanggal = date('Y-m-d');
+
+        if ($kd_guru == ""){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan,silahkan pilih guru sebagai wali kelas.
+                </div>");
+            redirect('wali_kelas/add'); 
+        }
+
+        if ($kd_kls == ""){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal tersimpan,kelas belum di pilih.
+                </div>");
+            redirect('wali_kelas/add');
+        }
 
         $data['kode_wali'] = $get_kode_wali;
         $data['kode_guru'] = $kd_guru;

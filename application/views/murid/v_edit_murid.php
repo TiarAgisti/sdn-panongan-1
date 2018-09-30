@@ -22,7 +22,6 @@
                         $selected_murid_pr = "selected";
                     }
                 ?>
-                <option value="">--PILIH--</option>
                 <option value="Laki-Laki" <?php echo $selected_murid_lk;?>>Laki-Laki</option>
                 <option value="Perempuan" <?php echo $selected_murid_pr;?>>Perempuan</option>
             </select>

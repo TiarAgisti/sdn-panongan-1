@@ -24,7 +24,6 @@
                         $selected_pr = "selected";
                     }
                 ?>
-                <option value="">--PILIH--</option>
                 <option value="Laki-Laki" <?php echo $selected_lk;?>>Laki-Laki</option>
                 <option value="Perempuan" <?php echo $selected_pr;?>>Perempuan</option>
             </select>

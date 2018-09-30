@@ -32,7 +32,6 @@
                         $ketSabtu = "selected";
                     }
                 ?>
-                <option value="">--PILIH--</option>
                 <option value="1" <?php echo $ketSenin;?>>Senin</option>
                 <option value="2" <?php echo $ketSelasa;?>>Selasa</option>
                 <option value="3" <?php echo $ketRabu;?>>Rabu</option>
