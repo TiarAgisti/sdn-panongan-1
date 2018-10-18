@@ -18,7 +18,6 @@
 				</a>
 				<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 					<div></div>
-					<a class="dropdown-item">Change Password</a>
 					<a class="dropdown-item" href="<?php echo base_url();?>login/logout">Sign Out</a>
 				</div>
 			</li>
