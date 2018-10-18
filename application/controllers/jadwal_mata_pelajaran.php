@@ -106,6 +106,15 @@ class jadwal_mata_pelajaran extends CI_Controller {
             redirect('jadwal_mata_pelajaran/add');
         }
 
+        $res = $this->m_jadwal_mata_pelajaran->RetrieveJadwalMapel($hari,$kd_kls,$kd_mapel);
+        if($res->hari != ""){
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data gagal disimpan,hari,kelas dan mata pelajaran tidak boleh sama.
+                </div>");
+            redirect('jadwal_mata_pelajaran/add');
+        }
+
         $data['kode_jadwal'] = $get_kode_jadwal;
         $data['hari'] = $hari;
         $data['kode_kelas'] = $kd_kls;
