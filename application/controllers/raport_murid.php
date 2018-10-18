@@ -55,23 +55,31 @@ class raport_murid extends CI_Controller {
 
         $res = $this->m_raport_murid->RetrieveRaportHeader($cmbPilih,$txtCari);
         $kodeRaport = $res->kode_raport;
-        $listNilai = $this->m_raport_murid->RetrieveRaportDetail($kodeRaport);
+        if ($kodeRaport != ""){
+            $listNilai = $this->m_raport_murid->RetrieveRaportDetail($kodeRaport);
 
-        $data['nama_guru'] = $res->nama_guru;
-        $data['nama_murid'] = $res->nama_murid;
-        $data['ket_kelas'] = $res->ket_kelas;
-        $data['thn_ajaran'] = $res->tahun_ajaran;
-        $data['sakit'] = $res->sakit;
-        $data['ijin'] = $res->ijin;
-        $data['alpa'] = $res->alpa;
-        $data['keterangan'] = $res->keterangan;
-        $data['list_nilai'] = $listNilai;
+            $data['nama_guru'] = $res->nama_guru;
+            $data['nama_murid'] = $res->nama_murid;
+            $data['ket_kelas'] = $res->ket_kelas;
+            $data['thn_ajaran'] = $res->tahun_ajaran;
+            $data['sakit'] = $res->sakit;
+            $data['ijin'] = $res->ijin;
+            $data['alpa'] = $res->alpa;
+            $data['keterangan'] = $res->keterangan;
+            $data['list_nilai'] = $listNilai;
 
-        $data['res_pilih'] = $cmbPilih;
-        $data['res_cari'] = $txtCari;
+            $data['res_pilih'] = $cmbPilih;
+            $data['res_cari'] = $txtCari;
         // echo ".$res->nama_murid.";
         // exit();
-        $this->load->view('v_home', $data);
+            $this->load->view('v_home', $data);
+        }else{
+            $this->session->set_flashdata("msg", "<div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <strong>Peringatan!</strong> Data tidak ditemukan.
+                </div>");
+            redirect('raport_murid/view_raport'); 
+        }
     }
 
     function list_murid()
