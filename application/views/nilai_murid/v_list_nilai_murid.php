@@ -18,7 +18,9 @@
                     <th>Kode Mata Pelajaran</th>
                     <th>Nama Mata Pelajaran</th>
                     <th>Nilai</th>
+                    <?php if ($this->session->userdata('type') == 'Admin'){; ?>
                     <th></th>
+                    <?php }; ?>
                 </tr>
             </thead>
             <tbody>
@@ -28,11 +30,13 @@
                     <td><?php echo $row->kode_mapel;?></td>
                     <td><?php echo $row->nama_mapel;?></td>
                     <td><?php echo $row->nilai;?></td>
+                    <?php if ($this->session->userdata('type') == 'Admin'){; ?>
                     <td>
                         <a href="<?php echo base_url();?>nilai_murid/edit/<?php echo $kd_murid;?>/<?php echo $row->kode_mapel;?>">
                             Ubah
                         </a>
                     </td>
+                    <?php }; ?>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
