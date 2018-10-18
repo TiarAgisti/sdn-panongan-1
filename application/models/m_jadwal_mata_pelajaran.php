@@ -31,5 +31,14 @@ class m_jadwal_mata_pelajaran extends CI_Model{
         $max_jadwal = $max_fix + 1;
         $kode_jadwal = "J".sprintf("%05s", $max_jadwal);
         return $kode_jadwal;
+    }
+
+    function RetrieveJadwalMapel($hari,$kelas,$mapel)
+    {
+        $query = "SELECT * FROM jadwal_mapel
+            WHERE hari = '$hari' and kode_kelas = '$kelas' and kode_mapel = '$mapel'";
+        
+        $res =  $this->db->query($query)->row();
+        return $res;
     }   
 }
