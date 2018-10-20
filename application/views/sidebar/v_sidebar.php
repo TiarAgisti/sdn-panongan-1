@@ -59,20 +59,25 @@
 			</a>
 			<div class="collapse" id="auth">
 				<ul class="nav flex-column sub-menu">
-			      	<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
+			      	<?php if ($this->session->userdata('type') != 'Orangtua'){; ?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>wali_kelas">Wali Kelas</a>
 					</li>
-					<?php };?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>jadwal_mata_pelajaran">Jadwal Mata Pelajaran</a>
 					</li>
-					<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
+					<?php };?>
+					<?php if ($this->session->userdata('type') == 'Orangtua'){; ?>
+					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url();?>jadwal_mata_pelajaran/view_jadwal">Jadwal Mapel Murid</a>
+					</li>
+					<?php };?>
+					<?php if ($this->session->userdata('type') != 'Orangtua'){; ?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>kkm">KKM</a>
 					</li>
 					<?php };?>
-					<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
+					<?php if ($this->session->userdata('type') != 'Orangtua'){; ?>
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url();?>nilai_murid">Nilai Murid</a>
 					</li>
