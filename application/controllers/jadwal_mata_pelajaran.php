@@ -32,6 +32,47 @@ class jadwal_mata_pelajaran extends CI_Controller {
         $this->load->view('v_home', $data);
     }
 
+    function view_jadwal()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "jadwal_mata_pelajaran/v_jadwal_murid";
+
+        $sql_kelas = "select kode_kelas,concat(tingkat_kelas,keterangan_tingkat) as ket_kelas from kelas where status = 1";
+        $data['kelas'] =  $this->db->query($sql_kelas);
+        $this->load->view('v_home', $data);   
+    }
+
+    function view_jadwal_by_hari()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "jadwal_mata_pelajaran/v_jadwal";
+
+        $hari = $this->uri->segment(3);
+        $getData = $this->m_jadwal_mata_pelajaran->retrievejadwalbyhari($hari);
+        $data['listjadwal'] = $getData;
+        $this->load->view('v_home', $data);
+    }
+
+    function view_jadwal_by_kelas()
+    {
+        $data['header'] = "header/v_header";
+        $data['navbar'] = "navbar/v_navbar";
+        $data['sidebar'] = "sidebar/v_sidebar";
+        $data['footer'] = "footer/v_footer";
+        $data['body'] = "jadwal_mata_pelajaran/v_jadwal";
+
+        $kelas = $this->uri->segment(3);
+        $getData = $this->m_jadwal_mata_pelajaran->retrievejadwalbykelas($kelas);
+        $data['listjadwal'] = $getData;
+        $this->load->view('v_home', $data);
+    }
+
     function add()
     {
         $data['header'] = "header/v_header";
