@@ -2,14 +2,12 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Data Jadwal Mata Pelajaran</div>
 	<div class="panel-body">
-      	<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
 		<div class="box-header">
 			<a href="<?php echo base_url();?>jadwal_mata_pelajaran/add">
 				<button type="button" class="btn btn-info">Tambah Data</button>
 			</a>
 		</div>
 		<br />
-		<?php };?>
 		<div class="box-body">
 			<table id="dtjadwal" class="table table-bordered table-striped">
 				<thead>
@@ -18,9 +16,7 @@
 						<th>Hari</th>
 						<th>Kelas</th>
 						<th>Mata Pelajaran</th>
-				      	<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
 						<th></th>
-					<?php };?>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,8 +26,7 @@
 						<td><?php echo $row->ket_hari;?></td>
 						<td><?php echo $row->tingkat_kelas;?></td>
 						<td><?php echo $row->nama_mapel;?></td>
-				      	<?php if ($this->session->userdata('type') <> 'Orangtua'){; ?>
-						<td>
+				      	<td>
 							<a href="<?php echo base_url();?>jadwal_mata_pelajaran/edit/<?php echo $row->kode_jadwal;?>">
 								Ubah
 							</a> |
@@ -39,7 +34,6 @@
 								Hapus
 							</a>
 						</td>
-						<?php };?>
 					</tr>
 					<?php endforeach;?>
 				</tbody>
